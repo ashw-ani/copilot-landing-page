@@ -60,10 +60,10 @@ const End = () => {
             <div className="footer-links">
                 <p className="trust-text">Trusted by over 500 global enterprises</p>
                 <div className="links">
-                    <a href="#">About HRS</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Privacy policy</a>
-                    <a href="#">Terms and conditions</a>
+                    <a href="https://copilot.app.hrs.com/register">About HRS</a>
+                    <a href="https://copilot.app.hrs.com/register">Careers</a>
+                    <a href="https://copilot.app.hrs.com/register">Privacy policy</a>
+                    <a href="https://copilot.app.hrs.com/register">Terms and conditions</a>
                 </div>
             </div>
         </div>

@@ -1,18 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Features.css';
-import CardStack from './CardStack';
-import BenefitCards from './BenefitCards';
-import References from './References';
 import End from './End';
-import Technologies from './Technologies';
 
 const Features = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const stickyRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(containerRef, { once: false, amount: 0.15 });
+    // const isInView = useInView(containerRef, { once: false, amount: 0.15 });
     const [isPaused, setIsPaused] = useState(false);
 
     // Initialize video playback

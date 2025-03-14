@@ -16,21 +16,21 @@ const Preview = () => {
     const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
     const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 1]);
 
-    const [isInView, setIsInView] = useState(false);
+    // const [isInView, setIsInView] = useState(false);
 
-    useEffect(() => {
-        const unsubscribe = scrollYProgress.on("change", (value) => {
-            if (value > 0.1 && value < 0.9) {
-                setIsInView(true);
-                videoRef.current?.play();
-            } else {
-                setIsInView(false);
-                videoRef.current?.pause();
-            }
-        });
+    // useEffect(() => {
+    //     const unsubscribe = scrollYProgress.on("change", (value) => {
+    //         if (value > 0.1 && value < 0.9) {
+    //             setIsInView(true);
+    //             videoRef.current?.play();
+    //         } else {
+    //             setIsInView(false);
+    //             videoRef.current?.pause();
+    //         }
+    //     });
 
-        return () => unsubscribe();
-    }, [scrollYProgress]);
+    //     return () => unsubscribe();
+    // }, [scrollYProgress]);
 
     // Add event listeners for video state changes
     useEffect(() => {

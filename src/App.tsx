@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -6,12 +6,10 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import Preview from './components/Preview';
-import End from './components/End';
-import FloatingCircle from './components/FloatingCircle';
+
 import CardStack from './components/CardStack';
 import BenefitCards from './components/BenefitCards';
 import References from './components/References';
-import ConvergingVideos from './components/ConvergingVideos';
 import Technologies from './components/Technologies';
 
 
