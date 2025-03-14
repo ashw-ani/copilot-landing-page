@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import './CardStack.css';
 
@@ -28,7 +28,8 @@ const CardStack = () => {
     const firstVideoRef = useRef<HTMLVideoElement>(null);
     const secondVideoRef = useRef<HTMLVideoElement>(null);
     const thirdVideoRef = useRef<HTMLVideoElement>(null);
-    const videoRefs = [firstVideoRef, secondVideoRef, thirdVideoRef];
+    const videoRefs = useMemo(() => [firstVideoRef, secondVideoRef, thirdVideoRef], 
+        [/* no dependencies needed since refs don't change */]);
 
     const firstCardRef = useRef<HTMLDivElement>(null);
     const secondCardRef = useRef<HTMLDivElement>(null);
@@ -42,7 +43,8 @@ const CardStack = () => {
     const firstCardInView = useInView(firstCardRef, { once: false, amount: 0.3 });
     const secondCardInView = useInView(secondCardRef, { once: false, amount: 0.3 });
     const thirdCardInView = useInView(thirdCardRef, { once: false, amount: 0.3 });
-    const cardInViews = [firstCardInView, secondCardInView, thirdCardInView];
+    const cardInViews = useMemo(() => [firstCardInView, secondCardInView, thirdCardInView],
+        [firstCardInView, secondCardInView, thirdCardInView]);
 
     // Handle video playback for all cards
     useEffect(() => {
@@ -54,7 +56,7 @@ const CardStack = () => {
                 video.pause();
             }
         });
-    }, [cardInViews]);
+    }, [cardInViews, videoRefs]);
 
     const { scrollYProgress } = useScroll({
         target: scrollContainerRef,
@@ -129,4 +131,4 @@ const CardStack = () => {
     );
 };
 
-export default CardStack; 
+export default CardStack;
