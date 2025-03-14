@@ -11,69 +11,71 @@ const Features = () => {
     // const isInView = useInView(containerRef, { once: false, amount: 0.15 });
     const [isPaused, setIsPaused] = useState(false);
 
-    // Initialize video playback
+    // Consolidated video playback logic
     useEffect(() => {
         const video = videoRef.current;
-        if (!video) return;
+        if (!video) {
+            console.log('Video element not found');
+            return;
+        }
 
-        // Force play on mount
+        console.log('Initializing video playback');
+
+        const handlePlay = () => {
+            console.log('Video play event triggered');
+            setIsPaused(false);
+        };
+
+        const handlePause = () => {
+            console.log('Video pause event triggered');
+            setIsPaused(true);
+        };
+
         const playVideo = async () => {
             try {
+                console.log('Attempting to play video');
+                video.muted = true;
                 await video.play();
+                console.log('Video playing successfully');
                 setIsPaused(false);
             } catch (error) {
                 console.error('Error playing video:', error);
+                // Retry play on user interaction
+                const playOnClick = async () => {
+                    try {
+                        await video.play();
+                        document.removeEventListener('click', playOnClick);
+                    } catch (err) {
+                        console.error('Failed to play on click:', err);
+                    }
+                };
+                document.addEventListener('click', playOnClick);
             }
         };
 
-        playVideo();
-
-        // Handle video loading
+        // Play video when it's loaded
         video.addEventListener('loadeddata', playVideo);
-        return () => {
-            video.removeEventListener('loadeddata', playVideo);
-        };
-    }, []); // Run only on mount
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        const handlePlay = () => setIsPaused(false);
-        const handlePause = () => setIsPaused(true);
-
         video.addEventListener('play', handlePlay);
         video.addEventListener('pause', handlePause);
 
+        // Initial play attempt
+        if (video.readyState >= 2) {
+            playVideo();
+        }
+
         return () => {
+            video.removeEventListener('loadeddata', playVideo);
             video.removeEventListener('play', handlePlay);
             video.removeEventListener('pause', handlePause);
         };
-    }, []);
-
-    // Remove the isInView condition from video playback
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        if (!isPaused) {
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.error('Error playing video:', error);
-                });
-            }
-        } else {
-            video.pause();
-        }
-    }, [isPaused]);
+    }, []); // Run only on mount
 
     const handlePlayPause = () => {
         const video = videoRef.current;
         if (!video) return;
 
         if (video.paused) {
-            video.play();
+            video.play().catch(error => console.error('Error playing video:', error));
         } else {
             video.pause();
         }
@@ -150,7 +152,9 @@ const Features = () => {
                         ref={videoRef}
                         className="features-video"
                         loop
+                        muted
                         playsInline
+                        webkit-playsinline
                         autoPlay
                         preload="auto"
                         src="/v4.mp4"
