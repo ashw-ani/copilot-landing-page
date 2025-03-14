@@ -1,0 +1,155 @@
+.floating-circle {
+    position: fixed;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: rgba(255, 50, 50, 0);
+    z-index: 1000;
+    pointer-events: none;
+    will-change: transform;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+}
+
+.floating-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.scroll-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.scroll-indicator {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.scroll-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.scroll-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.scroll-button:active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.scroll-value {
+    min-width: 70px;
+    text-align: center;
+    display: inline-block;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.save-button:active {
+    background-color: #3d8b40;
+    transform: translateY(1px);
+}
+
+.coordinates-list {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    z-index: 1000;
+    width: 500px;
+}
+
+.coordinates-list h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #4CAF50;
+}
+
+.coordinates-text {
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+    outline: none;
+}
+
+.coordinates-text:focus {
+    border-color: #4CAF50;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.coordinates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.coordinate-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.coordinate-item span {
+    white-space: nowrap;
+}
+
+.coordinate-item span:first-child {
+    color: #4CAF50;
+} 

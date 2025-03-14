@@ -1,0 +1,219 @@
+.card-stack-container {
+    width: 100%;
+    height: 400vh; /* Creates space for scrolling */
+    position: relative;
+}
+
+.card-stack-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* margin-top: 100vh; */
+}
+.stack-heading{
+    font-size: 2.5rem;
+    position: absolute;
+    z-index: 1;
+    top: 3rem;
+    color: white;
+    /* margin-bottom: 1.5rem; */
+    font-weight: 700;
+    width: 100%;
+    line-height: 1.2;
+    background-color: rgb(12, 12, 12);
+}
+
+.card-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(12, 12, 12);
+    min-height: calc(100vh - 5rem);
+    padding: 0 2rem;
+    flex-direction: column;
+}
+
+.stack-container {
+    width: 100%;
+    max-width: min(90vw, 37.5rem); /* 600px in rem */
+    height: 100%;
+    position: relative;
+    padding: clamp(2rem, 4vw, 6rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stack-card {
+    position: absolute;
+     width: clamp(18.75rem, 60%, 25rem);
+    width: 50%;
+    background: rgb(0, 0, 0);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 2.5rem 5.625rem rgba(27, 27, 27, 0.8);
+    transition: transform 0.3s ease-out;
+}
+
+.stack-card-media {
+    width: 100%;
+    height: 0;
+    padding-top: 48%; /* Increased from 40%, original was 56.25% */
+    position: relative;
+    background: rgb(20, 20, 20);
+    overflow: hidden;
+}
+
+.card-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f3f4f6 25%, #e5e7eb 25%, #e5e7eb 50%, #f3f4f6 50%, #f3f4f6 75%, #e5e7eb 75%, #e5e7eb 100%);
+    background-size: 20px 20px;
+}
+
+.stack-card-content {
+    padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.stack-card h2 {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: 600;
+    color: #899cc6;
+    margin: 0 0 0.5rem 0;
+}
+
+.caption-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.caption {
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    color: #b2bfd2;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.sub-caption {
+    font-size: clamp(0.75rem, 0.875vw, 0.875rem);
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Stacking styles */
+.stack-card:nth-child(1) {
+    transform: translateY(0) ;
+    z-index: 1;
+}
+
+.stack-card:nth-child(2) {
+    transform: translateY(1rem) scale(3);
+    z-index: 2;
+}
+
+.stack-card:nth-child(3) {
+    transform: translateY(0) ;
+    z-index: 3;
+}
+
+/* Media Queries */
+@media (min-width: 120rem) { /* 1920px */
+    .stack-container {
+        max-width: 43.75rem;
+    }
+
+    .stack-card {
+        width: 60%;
+    }
+}
+
+@media (max-width: 64rem) { /* 1024px */
+    .card-stack {
+        padding: clamp(1.5rem, 3vw, 4rem);
+    }
+
+    .stack-card {
+        width: 70%;
+    }
+}
+
+@media (max-width: 48rem) { /* 768px */
+    .card-stack {
+        padding: 1rem;
+        min-height: calc(100vh - 4rem);
+    }
+
+    .stack-container {
+        padding: 2rem;
+    }
+
+    .stack-card {
+        width: 85%;
+    }
+
+    .stack-card-content {
+        padding: 1rem;
+    }
+
+    .stack-card:nth-child(1) {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    .stack-card:nth-child(2) {
+        transform: translateY(0);
+        opacity: 0.75;
+    }
+
+    .stack-card:nth-child(3) {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 30rem) { /* 480px */
+    .stack-card {
+        width: 90%;
+    }
+
+    .stack-card-content {
+        padding: 0.75rem;
+    }
+
+    .stack-card h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* High DPI Screens */
+@media screen and (min-resolution: 192dpi) {
+    .stack-card {
+        width: clamp(16rem, 55%, 22rem);
+    }
+
+    .stack-card-content {
+        padding: clamp(0.875rem, 1.5vw, 1.5rem);
+    }
+}
