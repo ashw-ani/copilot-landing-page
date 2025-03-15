@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
           />
         </a>
         <div className="nav-buttons">
-          <button className="nav-button experience">Get Started</button>
+          <button className="nav-button experience" onClick={() => window.location.href = 'https://copilot.app.hrs.com/register'}>Get Started</button>
         </div>
       </div>
     </nav>
