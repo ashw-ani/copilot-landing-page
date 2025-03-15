@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    margin-top: 100vh;
+    /* margin-top: 100vh; */
 }
 
 .end-section .hero-logo {

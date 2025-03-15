@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Features.css';
-import End from './End';
+import Technologies from './Technologies';
+// import End from './End';
 
 const Features = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -209,7 +210,8 @@ const Features = () => {
                 {/* <CardStack />
                 <BenefitCards />
                 <References /> */}
-                <End/>
+                {/* <End/> */}
+                <Technologies/>
             </div>
             
         </motion.section>

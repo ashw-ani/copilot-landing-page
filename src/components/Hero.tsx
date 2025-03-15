@@ -45,35 +45,47 @@ const Hero = () => {
                                 perspective: 1000,
                                 transformStyle: "preserve-3d"
                             }}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ 
+                                opacity: 1, 
+                                x: -200,
+                                y: -200 
+                            }}
                             animate={{ 
                                 opacity: 1,
+                                x: 0,
                                 y: [0, -10, 0, -10, 0, 0, 0],
                                 rotateY: [0, 0, 0, 0, 0, 360, 360],
                                 scale: [1, 1, 1, 1, 1, 1.1, 1],
-                                transition: {
-                                    opacity: {
-                                        duration: 0.6,
-                                        delay: 0.3
-                                    },
-                                    y: {
-                                        times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
-                                        duration: 8,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    },
-                                    rotateY: {
-                                        times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
-                                        duration: 8,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    },
-                                    scale: {
-                                        times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
-                                        duration: 8,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }
+                            }}
+                            transition={{
+                                opacity: {
+                                    duration: 5,
+                                    ease: "easeOut"
+                                },
+                                x: {
+                                    duration: 2.5,
+                                    ease: [0.16, 1, 0.3, 1]
+                                },
+                                y: {
+                                    times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
+                                    duration: 8,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 2.5
+                                },
+                                rotateY: {
+                                    times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
+                                    duration: 8,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 2.5
+                                },
+                                scale: {
+                                    times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
+                                    duration: 8,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 2.5
                                 }
                             }}
                         />

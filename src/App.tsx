@@ -10,8 +10,8 @@ import Preview from './components/Preview';
 import CardStack from './components/CardStack';
 import BenefitCards from './components/BenefitCards';
 import References from './components/References';
-import Technologies from './components/Technologies';
-
+// import Technologies from './components/Technologies';
+import End from './components/End';
 
 
 function App() {
@@ -108,7 +108,7 @@ const testimonialdata3 = [
       <Testimonials data={testimonialdata1} isReversed={false}/>
       <Testimonials data={testimonialdata2} isReversed={false}/>
       <Testimonials data={testimonialdata3} isReversed={false}/>
-      <Technologies/>
+      
       <div className='copilot-in-action'>
         <motion.h1
           initial={{ 
@@ -133,7 +133,8 @@ const testimonialdata3 = [
         </motion.h1>
       </div>
       <Features />
-      {/* <End /> */}
+      {/* <Technologies/> */}
+      <End />
     </div>
   );
 }
