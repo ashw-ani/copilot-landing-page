@@ -11,15 +11,14 @@ const Features = () => {
     // const isInView = useInView(containerRef, { once: false, amount: 0.15 });
     const [isPaused, setIsPaused] = useState(false);
 
-    // Consolidated video playback logic
+    // Video playback logic with intersection observer
     useEffect(() => {
         const video = videoRef.current;
-        if (!video) {
-            console.log('Video element not found');
-            return;
-        }
+        const container = containerRef.current;
+        if (!video || !container) return;
 
         console.log('Initializing video playback');
+        video.muted = true;
 
         const handlePlay = () => {
             console.log('Video play event triggered');
@@ -32,41 +31,52 @@ const Features = () => {
         };
 
         const playVideo = async () => {
-            try {
-                console.log('Attempting to play video');
-                video.muted = true;
-                await video.play();
-                console.log('Video playing successfully');
-                setIsPaused(false);
-            } catch (error) {
-                console.error('Error playing video:', error);
-                // Retry play on user interaction
-                const playOnClick = async () => {
-                    try {
-                        await video.play();
-                        document.removeEventListener('click', playOnClick);
-                    } catch (err) {
-                        console.error('Failed to play on click:', err);
-                    }
-                };
-                document.addEventListener('click', playOnClick);
+            if (video.paused) {
+                try {
+                    console.log('Attempting to play video');
+                    await video.play();
+                    console.log('Video playing successfully');
+                    setIsPaused(false);
+                } catch (error) {
+                    console.error('Error playing video:', error);
+                }
             }
         };
 
-        // Play video when it's loaded
-        video.addEventListener('loadeddata', playVideo);
+        const pauseVideo = () => {
+            if (!video.paused) {
+                video.pause();
+            }
+        };
+
+        // Create intersection observer for video playback
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                if (entry.isIntersecting) {
+                    console.log('Video entered viewport');
+                    playVideo();
+                } else {
+                    console.log('Video left viewport');
+                    pauseVideo();
+                }
+            },
+            {
+                threshold: 0.2 // Start playing when 20% of the video is visible
+            }
+        );
+
+        // Add event listeners
         video.addEventListener('play', handlePlay);
         video.addEventListener('pause', handlePause);
 
-        // Initial play attempt
-        if (video.readyState >= 2) {
-            playVideo();
-        }
+        // Start observing the container
+        observer.observe(container);
 
         return () => {
-            video.removeEventListener('loadeddata', playVideo);
             video.removeEventListener('play', handlePlay);
             video.removeEventListener('pause', handlePause);
+            observer.disconnect();
         };
     }, []); // Run only on mount
 
