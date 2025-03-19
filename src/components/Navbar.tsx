@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ onGetStarted }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="/" className="navbar-logo">
+        <a href="https://www.hrs.com/enterprise/homepage/" className="navbar-logo">
           <motion.img
             src="/HRSlogo.png"
             alt="Copilot Logo"
