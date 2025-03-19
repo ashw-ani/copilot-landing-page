@@ -2,13 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Navbar.css';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onGetStarted: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onGetStarted }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <a href="/" className="navbar-logo">
           <motion.img
-            src="/group47.svg"
+            src="/HRSlogo.png"
             alt="Copilot Logo"
             className="nav-logo"
             initial={{ opacity: 0 }}
@@ -17,7 +21,12 @@ const Navbar: React.FC = () => {
           />
         </a>
         <div className="nav-buttons">
-          <button className="nav-button experience" onClick={() => window.location.href = 'https://copilot.app.hrs.com/register'}>Get Started</button>
+          <button 
+            className="nav-button experience" 
+            onClick={onGetStarted}
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </nav>

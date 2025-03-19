@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import './End.css';
 // import './FloatingIcon.css';
 
-const End = () => {
+interface EndProps {
+    onGetStarted: () => void;
+}
+
+const End: React.FC<EndProps> = ({ onGetStarted }) => {
     return (
         <div className="end-section">
             <div style={{ position: 'relative', width: '100%' }}>
@@ -52,13 +56,18 @@ const End = () => {
                     <h2>You are the pilot – and we're your Copilot</h2>
                     <p>Ready to step into the future of corporate travel?</p>
                     <div className="action-buttons">
-                        <button className="get-started" onClick={() => window.location.href = 'https://copilot.app.hrs.com/register'}>Get started</button>
-                        <button className="contact-sales">Contact Sales</button>
+                        <button 
+                            className="get-started" 
+                            onClick={onGetStarted}
+                        >
+                            Get started
+                        </button>
+                        <button className="contact-sales">Contact Us</button>
                     </div>
                 </div>
             </div>
             <div className="footer-links">
-                <p className="trust-text">Trusted by over 500 global enterprises</p>
+                <p className="trust-text">HRS. Trusted by over 500 global enterprises</p>
                 <div className="links">
                     <a href="https://copilot.app.hrs.com/register">About HRS</a>
                     <a href="https://copilot.app.hrs.com/register">Careers</a>

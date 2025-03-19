@@ -20,13 +20,13 @@
     position: absolute;
     z-index: 1;
     top: 1.5rem;
-    color: white;
+    color: rgb(0, 0, 0);
     /* margin-bottom: 1.5rem; */
     font-weight: 700;
     width: 100%;
     line-height: 1.2;
-    background-color: rgb(12, 12, 12);
-    
+    /* background-color: rgb(12, 12, 12); */
+    background-color: #f3f5f9;    
 }
 
 .card-stack {
@@ -36,7 +36,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(12, 12, 12);
+    /* background-color: rgb(12, 12, 12); */
+    background-color: #f3f5f9;
+    
     min-height: calc(100vh - 5rem);
     padding: 0 2rem;
     flex-direction: column;
@@ -60,8 +62,9 @@
     background: rgb(0, 0, 0);
     border-radius: 1.25rem;
     overflow: hidden;
-    box-shadow: 0 2.5rem 5.625rem rgba(27, 27, 27, 0.8);
+    box-shadow: 0 2.5rem 5.625rem #f3f5f99a;
     transition: transform 0.3s ease-out;
+    border:none
 }
 
 .stack-card-media {
@@ -71,6 +74,7 @@
     position: relative;
     background: rgb(20, 20, 20);
     overflow: hidden;
+    border:none
 }
 
 .card-video {
@@ -99,7 +103,7 @@
 .stack-card h2 {
     font-size: clamp(1.25rem, 2vw, 2rem);
     font-weight: 600;
-    color: #899cc6;
+    color: #ffffff;
     margin: 0 0 0.5rem 0;
 }
 

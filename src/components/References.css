@@ -4,17 +4,36 @@
     position: relative;
 }
 
+.references-heading{
+    color: #ffffff;
+margin-top: 2rem;
+font-size: 3rem;
+font-weight: 700;
+letter-spacing: 0.15rem;
+
+}
 .references-container {
     /* width: 100%; */
     height: 100vh;
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 5rem 2rem 2rem 2rem;
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
     align-items: center;
 }
-
+.reference-wrapper{
+    position:sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-grow: 1;
+    /* height: calc(100% - 5rem); */
+}
 
 .references-cards {
     position: sticky;
@@ -32,7 +51,7 @@
 
 .reference-card {
     width: 25%;
-    height: 80%;
+    height:93%;
     background: rgba(20, 20, 20, 0.8);
     border-radius: 1.25rem;
     backdrop-filter: blur(10px);
@@ -44,6 +63,58 @@
     flex-direction: column;
     margin-top: 8rem
 }
+
+@media (min-resolution: 144dpi) {
+    .reference-card {
+        width: 25%;
+        height:92%;
+        background: rgba(20, 20, 20, 0.8);
+        border-radius: 1.25rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        padding: 0;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        margin-top: 8rem
+    }
+    .reference-wrapper{
+    
+        height: calc(100% - 5rem);
+    }
+    .references-container {
+        /* width: 100%; */
+        height: 100vh;
+        padding: 5rem 2rem 1rem 2rem;
+        position: sticky;
+        top: 0;
+        display: flex;
+        /* justify-content: space-evenly; */
+        flex-direction: column;
+        align-items: center;
+    }
+    .references-heading{
+        color: #ffffff;
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    }
+
+    .reference-corner-icon {
+        position: absolute;
+        top: -2rem;
+        left :-2rem;
+        width: 4.5rem;
+        height:4.5rem;
+        object-fit: contain;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    
+  }
 
 .reference-card.visible {
     opacity: 1;
@@ -107,6 +178,7 @@
 
 .reference-author {
     height: 4rem;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -129,7 +201,7 @@
 }
 
 .reference-author span {
-    color: #899cc6;
+    color: #ffffff;
     font-size: 1rem;
 }
 

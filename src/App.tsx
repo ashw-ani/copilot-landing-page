@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -12,12 +12,25 @@ import BenefitCards from './components/BenefitCards';
 import References from './components/References';
 // import Technologies from './components/Technologies';
 import End from './components/End';
+import Popup from './components/Popup';
+import Technologies from './components/Technologies';
+import MultiWindows from './components/MultiWindows';
 
 
 function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handlePopupSubmit = (email: string, companyName: string) => {
+    // Handle form submission here
+    console.log('Form submitted:', { email, companyName });
+    // You can add API call or other logic here
+    setTimeout(() => {
+      window.location.href = 'https://copilot.app.hrs.com/register';
+    }, 3000);
+  };
 
   const testimonialdata1 = [
-    {
+    {   heading: "One-click execution",
         order:"row",
         features: [
           {
@@ -43,7 +56,7 @@ function App() {
 ]
 
 const testimonialdata2 = [
-  {
+  {   heading: "AI-powered optimization",
     order:"row-reverse",
       features: [{
           title: "Actionable insights",
@@ -65,7 +78,7 @@ const testimonialdata2 = [
   }
 ]
 const testimonialdata3 = [
-  {
+  {   heading: "Unified data intelligence",
     order:"row",
       features: [{
           title: "Automated Execution",
@@ -98,43 +111,61 @@ const testimonialdata3 = [
   return (
     <div className="App">
       {/* <FloatingCircle /> */}
-      <Navbar />
-      <Hero />
+      <Navbar onGetStarted={() => setIsPopupOpen(true)} />
+      <Hero onGetStarted={() => setIsPopupOpen(true)} />
       <Preview />
       <CardStack/>
       
       <BenefitCards/>
       <References/>
-      <Testimonials data={testimonialdata1} isReversed={false}/>
-      <Testimonials data={testimonialdata2} isReversed={false}/>
-      <Testimonials data={testimonialdata3} isReversed={false}/>
-      
-      <div className='copilot-in-action'>
+      <div className='testimonials-heading'>
         <motion.h1
-          initial={{ 
-            opacity: 0, 
-            y: 20,
-            letterSpacing: "0.5em"
-          }}
+          // initial={{ 
+          //   opacity: 0, 
+          //   y: 20,
+          //   letterSpacing: "0.5em"
+          // }}
           whileInView={{ 
             opacity: 1, 
             y: 0,
             letterSpacing: "0.02em",
-            transition: {
-              duration: 1.2,
-              ease: [0.215, 0.610, 0.355, 1.000],
-              opacity: { duration: 0.8 },
-              letterSpacing: { duration: 1.2 }
-            }
+            // transition: {
+            //   duration: 1.2,
+            //   ease: [0.215, 0.610, 0.355, 1.000],
+            //   opacity: { duration: 0.8 },
+            //   letterSpacing: { duration: 1.2 }
+            // }
+          }}
+          viewport={{ amount: 0.8 }}
+        >
+          What's in it for you?
+        </motion.h1>
+      </div>
+      <Testimonials data={testimonialdata1}  isReversed={false}/>
+      <Testimonials data={testimonialdata2}  isReversed={true}/>
+      <Testimonials data={testimonialdata3}  isReversed={false}/>
+      
+      {/* <div className='copilot-in-action'>
+        <motion.h1
+          whileInView={{ 
+            opacity: 1, 
+            y: 0,
+            letterSpacing: "0.02em",
           }}
           viewport={{ amount: 0.8 }}
         >
           See Copilot in action
         </motion.h1>
-      </div>
-      <Features />
-      {/* <Technologies/> */}
-      <End />
+      </div> */}
+      {/* <Features /> */}
+      <MultiWindows />
+      <Technologies/>
+      <End onGetStarted={() => setIsPopupOpen(true)} />
+      <Popup 
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+        onSubmit={handlePopupSubmit}
+      />
     </div>
   );
 }

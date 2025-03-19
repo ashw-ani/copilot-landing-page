@@ -50,13 +50,16 @@ const References = () => {
 
     return (
         <div className="references-section" ref={targetRef}>
+            
             <motion.div 
                 className="references-container"
                 style={{
-                    backgroundColor: "rgb(32, 32, 32)"
+                    backgroundColor: "#202020"
                 }}
             >
                 
+                    <div className='references-heading'>Why leading enterprises choose Copilot</div>
+                    <div className='reference-wrapper'>
                     {references.map((ref, index) => (
                         <motion.div
                             key={index}
@@ -97,7 +100,7 @@ const References = () => {
                             </div>
                         </motion.div>
                     ))}
-                
+                </div>
             </motion.div>
         </div>
     );

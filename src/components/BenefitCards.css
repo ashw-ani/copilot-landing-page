@@ -1,7 +1,7 @@
 .benefits-section {
     position: relative;
     height: 600vh; /* Reduced from 400vh to 200vh for faster scrolling */
-    background-color: rgb(12, 12, 12);
+    background-color:#f3f5f9;
     width: 100%;
 }
 
@@ -26,7 +26,7 @@
 
 .benefits-title h2 {
     font-size: 3rem;
-    color: #899cc6;
+    color: #000000;
     margin-bottom: 1rem;
 }
 
@@ -85,7 +85,7 @@
     width: 17rem;
     height: 17rem;
     padding: 2rem;
-    background: rgba(20, 20, 20, 0.8);
+    background: rgba(20, 20, 20, 0.1);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -158,6 +158,214 @@
 
 .benefit-card h3 {
     font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-card p {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .benefits-grid {
+        height: 400px;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .benefits-grid::before {
+        display: none;
+    }
+
+    .benefit-card {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        transform: none !important;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .benefits-section {
+    position: relative;
+    height: 600vh; 
+    background-color: rgb(12, 12, 12);
+    width: 100%;
+}
+
+.benefits-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 7rem 2rem 2rem;
+    transition: all 0.3s ease-out;
+}
+
+
+.benefits-title {
+    text-align: center;
+    margin-bottom: 0rem;
+}
+
+.benefits-title h2 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.benefits-title p {
+    font-size: 1.2rem;
+    color: #b2bfd2;
+}
+@media (min-resolution: 144dpi) {
+    .benefits-title h2 {
+      zoom: 0.67; 
+      margin-top: -2.5rem;
+    }
+  }
+
+.benefits-grid {
+    position: relative;
+    width: 100%;
+    max-width: 70rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+}
+@media (min-resolution: 144dpi) {
+    .benefits-grid {
+        margin-top: 0rem;
+      zoom: 0.67; 
+
+    }
+  }
+
+@keyframes fadeInScroll {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.corner-image{
+    position: absolute;
+    top: -1.5rem;
+    left: -2.5rem;
+    width: 6rem;
+}
+
+
+
+.benefit-card {
+    position: absolute;
+    width: 17rem;
+    height: 17rem;
+    padding: 2rem;
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-origin: center center;
+    opacity: 0;
+    transition: all 0.3s ease-out; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@media (min-resolution: 144dpi) {
+    .benefit-card {
+        margin-top: 0rem;
+      zoom: 0.90; 
+
+    }
+  }
+
+.benefit-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.benefit-card-1 {
+    top: 2rem;
+    
+
+}
+
+.benefit-card-2 {
+
+    left: 5rem;
+
+}
+
+.benefit-card-3 {
+
+    right: 05rem
+
+}
+
+.benefit-card-4 {
+    bottom: 2rem;
+}
+
+.benefit-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.benefit-card-2.animate {
+    transform: translateX(0) translateY(-50%);
+}
+
+.benefit-card-3.animate {
+    transform: translateX(0) translateY(-50%);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.benefit-card h3 {
+    font-size: 1.5rem;
     color: #899cc6;
     margin-bottom: 0.5rem;
 }
@@ -189,4 +397,4 @@
         top: auto;
         bottom: auto;
     }
-}
+} */

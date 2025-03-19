@@ -77,6 +77,7 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                     backgroundColor: "rgb(12, 12, 12)"
                 }}
             >
+                <div className='testimonials-container-heading'>{props.data[0].heading}</div>
                 {testimonials.map((testimonial, index) => (
                     <div
                         key={index}

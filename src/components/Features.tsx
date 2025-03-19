@@ -203,7 +203,7 @@ const Features = () => {
                         viewport={{ once: false }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2>1-Click Optimization</h2>
+                        <h2>One-Click Optimization</h2>
                         <p>From RFP-less procurement and auto-configured points of sale to automated payments and VAT reclaim.</p>
                     </motion.div>
                 </div>

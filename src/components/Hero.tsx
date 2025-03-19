@@ -2,14 +2,17 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './Hero.css';
 
-const Hero = () => {
+interface HeroProps {
+    onGetStarted: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
     const targetRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start end", "end start"]
     });
 
-    // Create opacity transform for smooth fade out at the end of sticky section
     const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 1]);
 
     const handleLearnMore = () => {
@@ -116,7 +119,7 @@ const Hero = () => {
                                 className="hero-button hero-button--primary"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                onClick={() => window.location.href = 'https://copilot.app.hrs.com/register'}
+                                onClick={onGetStarted}
                             >
                                 Get Started
                             </motion.button>
