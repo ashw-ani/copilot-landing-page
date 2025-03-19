@@ -1,11 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './MultiWindows.css';
 
 const MultiWindows = () => {
     const targetRef = useRef<HTMLDivElement>(null);
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const videoContainerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start start", "end start"]
@@ -13,63 +11,18 @@ const MultiWindows = () => {
 
     const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
     
-    // Create opacity transforms for each window with no overlap
-    const windowOpacity1 = useTransform(scrollYProgress, 
-        [0.1, 0.2, 0.3, 0.35], 
-        [0, 1, 1, 0]
-    );
-    const windowOpacity2 = useTransform(scrollYProgress, 
-        [0.35, 0.4, 0.5, 0.55], 
-        [0, 1, 1, 0]
-    );
-    const windowOpacity3 = useTransform(scrollYProgress, 
-        [0.55, 0.6, 0.7, 0.75], 
-        [0, 1, 1, 0]
-    );
-    const windowOpacity4 = useTransform(scrollYProgress, 
-        [0.75, 0.8, 0.9, 0.95], 
-        [0, 1, 1, 0]
-    );
+    // Create scale and opacity transforms for each image
+    const scale1 = useTransform(scrollYProgress, [0.1, 0.3], [0.5, 1]);
+    const scale2 = useTransform(scrollYProgress, [0.2, 0.4], [0.5, 1]);
+    const scale3 = useTransform(scrollYProgress, [0.3, 0.5], [0.5, 1]);
+    const scale4 = useTransform(scrollYProgress, [0.4, 0.6], [0.5, 1]);
+    const scale5 = useTransform(scrollYProgress, [0.5, 0.7], [0.5, 1]);
 
-    useEffect(() => {
-        const video = videoRef.current;
-        const videoContainer = videoContainerRef.current;
-        if (!video || !videoContainer) return;
-
-        const handleEnded = () => {
-            video.currentTime = video.duration;
-        };
-
-        video.addEventListener('ended', handleEnded);
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-                        if (video.currentTime < video.duration) {
-                            video.play().catch(error => {
-                                console.error("Error playing video:", error);
-                            });
-                        }
-                    } else {
-                        video.pause();
-                    }
-                });
-            },
-            {
-                threshold: [0.4],
-                root: null,
-                rootMargin: '0px'
-            }
-        );
-
-        observer.observe(videoContainer);
-
-        return () => {
-            video.removeEventListener('ended', handleEnded);
-            observer.disconnect();
-        };
-    }, []);
+    const opacity1 = useTransform(scrollYProgress, [0.1, 0.2, 0.2, 0.3], [0, 1, 1, 1]);
+    const opacity2 = useTransform(scrollYProgress, [0.2, 0.3, 0.3, 0.4], [0, 1, 1, 1]);
+    const opacity3 = useTransform(scrollYProgress, [0.3, 0.4, 0.4, 0.5], [0, 1, 1, 1]);
+    const opacity4 = useTransform(scrollYProgress, [0.4, 0.5, 0.5, 0.6], [0, 1, 1, 1]);
+    const opacity5 = useTransform(scrollYProgress, [0.5, 0.6, 0.6, 0.7], [0, 1, 1, 1]);
 
     return (
         <div className="multiwindows-section" ref={targetRef}>
@@ -78,42 +31,59 @@ const MultiWindows = () => {
                 style={{ opacity }}
             >
                 <div className='multiwindows-heading'>Multi-Window Experience</div>
-                <div className="multiwindows-video-container" ref={videoContainerRef}>
-                    <video 
-                        ref={videoRef}
-                        className="multiwindows-background-video"
-                        muted
-                        playsInline
-                    >
-                        <source src="/laptop.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                    <div className="multiwindows-window-cards-container">
-                        <motion.div 
-                            className="multiwindows-window-card"
-                            style={{ opacity: windowOpacity1 }}
-                        >
-                            <p><b>Seamless Integration:</b> Experience a fluid multi-window interface that adapts to your workflow. Each window provides a dedicated space for different aspects of your work, allowing you to manage multiple tasks simultaneously with ease.</p>
-                        </motion.div>
-                        <motion.div 
-                            className="multiwindows-window-card"
-                            style={{ opacity: windowOpacity2 }}
-                        >
-                            <p><b>Intelligent Layout:</b> Our smart window management system automatically arranges your workspace for optimal productivity. Windows dynamically adjust based on your usage patterns and screen real estate.</p>
-                        </motion.div>
-                        <motion.div 
-                            className="multiwindows-window-card"
-                            style={{ opacity: windowOpacity3 }}
-                        >
-                            <p><b>Cross-Window Sync:</b> Keep your data synchronized across all windows in real-time. Changes made in one window instantly reflect across your entire workspace, ensuring consistency and accuracy.</p>
-                        </motion.div>
-                        <motion.div 
-                            className="multiwindows-window-card"
-                            style={{ opacity: windowOpacity4 }}
-                        >
-                            <p><b>Customizable Views:</b> Tailor your window layout to match your unique workflow. Save and switch between different window configurations with a single click, maximizing your productivity.</p>
-                        </motion.div>
+                <div className="multiwindows-content-container">
+                    <div className="multiwindows-images-container">
+                        <motion.img 
+                            src="/1.png"
+                            alt="Seamless Integration"
+                            className="multiwindows-image multiwindows-image-1"
+                            style={{ 
+                                scale: scale1,
+                                opacity: opacity1,
+                            }}
+                        />
+                        <motion.img 
+                            src="/2.png"
+                            alt="Intelligent Layout"
+                            className="multiwindows-image multiwindows-image-2"
+                            style={{ 
+                                scale: scale2,
+                                opacity: opacity2,
+                            }}
+                        />
+                        <motion.img 
+                            src="/3.png"
+                            alt="Cross-Window Sync"
+                            className="multiwindows-image multiwindows-image-3"
+                            style={{ 
+                                scale: scale3,
+                                opacity: opacity3,
+                            }}
+                        />
+                        <motion.img 
+                            src="/4.png"
+                            alt="Customizable Views"
+                            className="multiwindows-image multiwindows-image-4"
+                            style={{ 
+                                scale: scale4,
+                                opacity: opacity4,
+                            }}
+                        />
+                        <motion.img 
+                            src="/5.png"
+                            alt="Customizable Views"
+                            className="multiwindows-image multiwindows-image-5"
+                            style={{ 
+                                scale: scale5,
+                                opacity: opacity5,
+                            }}
+                        />
                     </div>
+                    <img 
+                        src="/main.png"
+                        alt="Background Laptop"
+                        className="multiwindows-background-image"
+                    />
                 </div>
             </motion.div>
         </div>

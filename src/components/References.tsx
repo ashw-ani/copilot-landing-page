@@ -58,7 +58,7 @@ const References = () => {
                 }}
             >
                 
-                    <div className='references-heading'>Why leading enterprises choose Copilot</div>
+                    <div className='references-heading'>Leading enterprises choose Copilot</div>
                     <div className='reference-wrapper'>
                     {references.map((ref, index) => (
                         <motion.div

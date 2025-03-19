@@ -40,7 +40,7 @@ const BenefitCards = () => {
             cornerImage: "/frame1.svg" // Add your image paths
         },
         {
-            title: "20%  Traveler Satisfaction",
+            title: "+20%  Traveler Satisfaction",
             description: "Empower travelers while maintaining full control over your program",
             icon: "😊",
             cornerImage: "/frame1.svg"
@@ -52,7 +52,7 @@ const BenefitCards = () => {
             cornerImage: "/frame1.svg"
         },
         {
-            title: "20% Savings",
+            title: "+20% Savings",
             description: "Unlock hidden savings through AI-powered spend and leakage optimization",
             icon: "💰",
             cornerImage: "/frame1.svg"
