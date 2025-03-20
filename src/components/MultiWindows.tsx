@@ -30,7 +30,7 @@ const MultiWindows = () => {
                 className="multiwindows-container"
                 style={{ opacity }}
             >
-                <div className='multiwindows-heading'>Multi-Window Experience</div>
+                <div className='multiwindows-heading'>See Copilot in Action</div>
                 <div className="multiwindows-content-container">
                     <div className="multiwindows-images-container">
                         <motion.img 
