@@ -8,19 +8,19 @@ const CardStack = () => {
             title: "No more wasted time and money",
             caption: "Smarter, faster, cost-optimized decisions in real time",
      
-            video: "/Full_market_access.mp4"
+            video: "/stack1.mov"
         },
         {
             title: "No more fragmented data",
             caption: "One source of truth for all travel spend",
             
-            video: "/Continuous_Learning.mp4"
+            video: "/stack2.mov"
         },
         {
             
             title: "No more manual processes",
             caption: "AI does the work, you make the decisions",
-            video: "/Seamless_harmonization.mp4"
+            video: "/stack3.mov"
         },
     ].reverse(); // Reverse the array so the first card appears on top
 

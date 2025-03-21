@@ -12,17 +12,25 @@ const MultiWindows = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
     
     // Create scale and opacity transforms for each image
-    const scale1 = useTransform(scrollYProgress, [0.1, 0.3], [0.5, 1]);
-    const scale2 = useTransform(scrollYProgress, [0.2, 0.4], [0.5, 1]);
-    const scale3 = useTransform(scrollYProgress, [0.3, 0.5], [0.5, 1]);
-    const scale4 = useTransform(scrollYProgress, [0.4, 0.6], [0.5, 1]);
-    const scale5 = useTransform(scrollYProgress, [0.5, 0.7], [0.5, 1]);
+    const scale1 = useTransform(scrollYProgress, [0.1,0.5], [1,0]);
+    const scale2 = useTransform(scrollYProgress, [0.1,0.5], [1,0]);
+    const scale3 = useTransform(scrollYProgress, [0.1,0.5], [1,0]);
+    const scale4 = useTransform(scrollYProgress, [0.1,0.5], [1,0]);
+    const scale5 = useTransform(scrollYProgress, [0.1,0.5], [1,0]);
 
-    const opacity1 = useTransform(scrollYProgress, [0.1, 0.2, 0.2, 0.3], [0, 1, 1, 1]);
-    const opacity2 = useTransform(scrollYProgress, [0.2, 0.3, 0.3, 0.4], [0, 1, 1, 1]);
-    const opacity3 = useTransform(scrollYProgress, [0.3, 0.4, 0.4, 0.5], [0, 1, 1, 1]);
-    const opacity4 = useTransform(scrollYProgress, [0.4, 0.5, 0.5, 0.6], [0, 1, 1, 1]);
-    const opacity5 = useTransform(scrollYProgress, [0.5, 0.6, 0.6, 0.7], [0, 1, 1, 1]);
+    // const opacity1 = useTransform(scrollYProgress, [0.1, 0.2, 0.2, 0.3], [1,1,1,0]);
+    // const opacity2 = useTransform(scrollYProgress, [0.2, 0.3, 0.3, 0.4], [1,1,1,0]);
+    // const opacity3 = useTransform(scrollYProgress, [0.3, 0.4, 0.4, 0.5], [1,1,1,0]);
+    // const opacity4 = useTransform(scrollYProgress, [0.4, 0.5, 0.5, 0.6], [1,1,1,0]);
+    // const opacity5 = useTransform(scrollYProgress, [0.5, 0.6, 0.6, 0.7], [1,1,1,0]);
+    const opacity1 = useTransform(scrollYProgress, [0.1,0.4], [1,0]);
+    const opacity2 = useTransform(scrollYProgress, [0.1,0.4], [1,0]);
+    const opacity3 = useTransform(scrollYProgress, [0.1,0.4], [1,0]);
+    const opacity4 = useTransform(scrollYProgress, [0.1,0.4], [1,0]);
+    const opacity5 = useTransform(scrollYProgress, [0.1,0.4], [1,0]);
+
+    const opacitymain = useTransform(scrollYProgress, [0.1,0.4,0.6], [0,0.7,1]);
+    const scalemain = useTransform(scrollYProgress, [0.1,0.6], [0.3,1]);
 
     return (
         <div className="multiwindows-section" ref={targetRef}>
@@ -79,10 +87,14 @@ const MultiWindows = () => {
                             }}
                         />
                     </div>
-                    <img 
+                    <motion.img 
                         src="/main.png"
                         alt="Background Laptop"
                         className="multiwindows-background-image"
+                        style={{ 
+                            scale: scalemain,
+                            opacity: opacitymain,
+                        }}
                     />
                 </div>
             </motion.div>

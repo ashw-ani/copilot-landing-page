@@ -1,6 +1,6 @@
 .testimonials-section {
     background-color: rgb(12, 12, 12);
-    min-height: 400vh;
+    min-height: 300vh;
     position: relative;
 }
 
@@ -8,7 +8,7 @@
     color: #ffffff;
     font-size: 3rem;
     font-weight: 600;
-    letter-spacing: 0.15rem;
+
 }
 
 .testimonials-container {
@@ -32,7 +32,6 @@
         color: #ffffff;
         font-size: 2.5rem;
         font-weight: 600;
-        letter-spacing: 0.15rem;
         margin-top: .5rem;
     }
   }

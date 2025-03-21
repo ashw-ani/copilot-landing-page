@@ -15,19 +15,19 @@ const Technologies = () => {
     
     // Create opacity transforms for each card with no overlap
     const cardOpacity1 = useTransform(scrollYProgress, 
-        [0.1, 0.2, 0.3, 0.35], 
+        [0.06, 0.12, 0.18, 0.24], 
         [0, 1, 1, 0]
     );
     const cardOpacity2 = useTransform(scrollYProgress, 
-        [0.35, 0.4, 0.5, 0.55], 
+        [0.24, 0.3, 0.36, 0.42], 
         [0, 1, 1, 0]
     );
     const cardOpacity3 = useTransform(scrollYProgress, 
-        [0.55, 0.6, 0.7, 0.75], 
+        [0.42, 0.48, 0.54, 0.60], 
         [0, 1, 1, 0]
     );
     const cardOpacity4 = useTransform(scrollYProgress, 
-        [0.75, 0.8, 0.9, 0.95], 
+        [0.66, 0.72, 0.78, 0.84], 
         [0, 1, 1, 0]
     );
 

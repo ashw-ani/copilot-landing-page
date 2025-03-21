@@ -40,24 +40,24 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
     // ];
 
     // Create scale and opacity animations for each feature
-    const feature1Scale = useTransform(scrollYProgress, [0, 0.3, 0.3], [1.05, 1.05, 1]);
-    const feature1Opacity = useTransform(scrollYProgress, [0, 0.3, 0.3], [1, 1, 0.15]);
+    const feature1Scale = useTransform(scrollYProgress, [0, 0.22, 0.22], [1.05, 1.05, 1]);
+    const feature1Opacity = useTransform(scrollYProgress, [0, 0.22, 0.22], [1, 1, 0.15]);
 
-    const feature2Scale = useTransform(scrollYProgress, [0, 0.3, 0.3, 0.6, 0.6], [1, 1, 1.05, 1.05, 1]);
-    const feature2Opacity = useTransform(scrollYProgress, [0, 0.3, 0.3, 0.6, 0.6], [0.15, 0.15, 1, 1, 0.15]);
+    const feature2Scale = useTransform(scrollYProgress, [0, 0.22, 0.22, 0.44, 0.44], [1, 1, 1.05, 1.05, 1]);
+    const feature2Opacity = useTransform(scrollYProgress, [0, 0.22, 0.22, 0.44, 0.44], [0.15, 0.15, 1, 1, 0.15]);
 
-    const feature3Scale = useTransform(scrollYProgress, [0, 0.6, 0.6, 0.85], [1, 1, 1.05, 1.05]);
-    const feature3Opacity = useTransform(scrollYProgress, [0, 0.6, 0.6, 0.85], [0.15, 0.15, 1, 1]);
+    const feature3Scale = useTransform(scrollYProgress, [0, 0.44, 0.44, 0.66], [1, 1, 1.05, 1.05]);
+    const feature3Opacity = useTransform(scrollYProgress, [0, 0.44, 0.44, 0.66], [0.15, 0.15, 1, 1]);
 
     // Add state for active feature
     const [activeFeature, setActiveFeature] = useState(0);
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.on("change", (value) => {
-            if (value < 0.3) {
+            if (value < 0.22) {
                 setCurrentVideo(0);
                 setActiveFeature(0);
-            } else if (value < 0.6) {
+            } else if (value < 0.44) {
                 setCurrentVideo(1);
                 setActiveFeature(1);
             } else {
@@ -113,7 +113,7 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                                                 opacity: idx === activeFeature ? 1 : 0
                                             }}
                                             transition={{
-                                                opacity: { duration: 0.3 }
+                                                opacity: { duration: 0.22 }
                                             }}
                                         />
                                         <h3>{feature.title}</h3>

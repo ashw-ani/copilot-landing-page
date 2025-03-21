@@ -11,23 +11,23 @@ const BenefitCards = () => {
 
     const positions = {
         card1: {
-            opacity: useTransform(scrollYProgress, [0, 0.2], [0, 1]),
-            y: useTransform(scrollYProgress, [0, 0.2], [50, 0]),
+            opacity: useTransform(scrollYProgress, [0, 0.15], [0, 1]),
+            y: useTransform(scrollYProgress, [0, 0.15], [50, 0]),
             cornerOpacity: useTransform(scrollYProgress, [0, 0.29, 0.3], [.7, 1, 0])
         },
         card2: {
-            opacity: useTransform(scrollYProgress, [0.3, 0.4], [0, 1]),
-            y: useTransform(scrollYProgress, [0.3, 0.4], [50, 0]),
+            opacity: useTransform(scrollYProgress, [0.2, 0.35], [0, 1]),
+            y: useTransform(scrollYProgress, [0.2, 0.35], [50, 0]),
             cornerOpacity: useTransform(scrollYProgress, [0.3, 0.49, 0.5], [.7, 1, 0])
         },
         card3: {
-            opacity: useTransform(scrollYProgress, [0.7, 0.8], [0, 1]),
-            y: useTransform(scrollYProgress, [0.7, 0.8], [50, 0]),
+            opacity: useTransform(scrollYProgress, [0.6, 0.75], [0, 1]),
+            y: useTransform(scrollYProgress, [0.6, 0.75], [50, 0]),
             cornerOpacity: useTransform(scrollYProgress, [0.7, 0.89, 0.9], [.7, 1, 0])
         },
         card4: {
-            opacity: useTransform(scrollYProgress, [0.5, 0.6], [0, 1]),
-            y: useTransform(scrollYProgress, [0.5, 0.6], [50, 0]),
+            opacity: useTransform(scrollYProgress, [0.4, 0.55], [0, 1]),
+            y: useTransform(scrollYProgress, [0.4, 0.55], [50, 0]),
             cornerOpacity: useTransform(scrollYProgress, [0.5, 0.69, 0.7], [.7, 1, 0])
         }
     };

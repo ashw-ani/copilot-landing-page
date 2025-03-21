@@ -1,7 +1,8 @@
 .card-stack-container {
     width: 100%;
-    height: 400vh; /* Creates space for scrolling */
+    height: 300vh; /* Creates space for scrolling */
     position: relative;
+    background-color: #fefefe;
 }
 
 .card-stack-sticky {
@@ -26,7 +27,7 @@
     width: 100%;
     line-height: 1.2;
     /* background-color: rgb(12, 12, 12); */
-    background-color: #f3f5f9;    
+    background-color: #fefefe;    
 }
 
 .card-stack {
@@ -37,7 +38,7 @@
     align-items: center;
     justify-content: center;
     /* background-color: rgb(12, 12, 12); */
-    background-color: #f3f5f9;
+    background-color: #fefefe;
     
     min-height: calc(100vh - 5rem);
     padding: 0 2rem;
@@ -59,10 +60,10 @@
     position: absolute;
      width: clamp(18.75rem, 60%, 25rem);
     width: 50%;
-    background: rgb(0, 0, 0);
+    background: #fefefe;
     border-radius: 1.25rem;
     overflow: hidden;
-    box-shadow: 0 2.5rem 5.625rem #f3f5f99a;
+    box-shadow: 0 2.5rem 5.625rem #fefefe98;
     transition: transform 0.3s ease-out;
     border:none
 }
@@ -72,7 +73,7 @@
     height: 0;
     padding-top: 48%; /* Increased from 40%, original was 56.25% */
     position: relative;
-    background: rgb(20, 20, 20);
+    background: #fefefe;
     overflow: hidden;
     border:none
 }
@@ -84,6 +85,7 @@
     width: 100%;
     height: 100%;
     object-fit: fill;
+    background-color: #fefefe;
 }
 
 .media-placeholder {
@@ -98,6 +100,7 @@
 
 .stack-card-content {
     padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 1.5vw, 1.5rem);
+    background-color: #000000;
 }
 
 .stack-card h2 {

@@ -9,12 +9,13 @@ import Preview from './components/Preview';
 
 import CardStack from './components/CardStack';
 import BenefitCards from './components/BenefitCards';
-import References from './components/References';
+// import References from './components/References';
 // import Technologies from './components/Technologies';
 import End from './components/End';
 import Popup from './components/Popup';
 import Technologies from './components/Technologies';
 import MultiWindows from './components/MultiWindows';
+// import DynamicsForm from './components/DynamicsForm';
 
 
 function App() {
@@ -112,12 +113,13 @@ const testimonialdata3 = [
     <div className="App">
       {/* <FloatingCircle /> */}
       <Navbar onGetStarted={() => setIsPopupOpen(true)} />
+      {/* <DynamicsForm /> */}
       <Hero onGetStarted={() => setIsPopupOpen(true)} />
       <Preview />
       <CardStack/>
       
       <BenefitCards/>
-      <References/>
+      {/* <References/> */}
       <div className='testimonials-heading'>
         <motion.h1
           // initial={{ 
@@ -128,7 +130,7 @@ const testimonialdata3 = [
           whileInView={{ 
             opacity: 1, 
             y: 0,
-            letterSpacing: "0.02em",
+            
             // transition: {
             //   duration: 1.2,
             //   ease: [0.215, 0.610, 0.355, 1.000],

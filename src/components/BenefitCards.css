@@ -1,6 +1,6 @@
 .benefits-section {
     position: relative;
-    height: 600vh; /* Reduced from 400vh to 200vh for faster scrolling */
+    height: 250vh; /* Reduced from 400vh to 200vh for faster scrolling */
     background-color:#f3f5f9;
     width: 100%;
 }

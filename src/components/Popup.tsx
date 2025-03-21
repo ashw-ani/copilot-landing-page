@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Popup.css';
-
+import DynamicsForm from './DynamicsForm';
 interface PopupProps {
     isOpen: boolean;
     onClose: () => void;
@@ -61,7 +61,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                         // animate={{ opacity: 1, scale: 1, y: 0 }}
                         // exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         // transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    >
+                    > 
                         <motion.div 
                             className="popup-floating-icon"
                             // initial={{ opacity: 0, y: 20 }}
@@ -116,6 +116,8 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                                 Submit
                             </button>
                         </form>
+                        <DynamicsForm />
+                        
                     </motion.div>
                 </>
             )}
