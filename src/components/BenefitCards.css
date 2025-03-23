@@ -5,6 +5,24 @@
     width: 100%;
 }
 
+/* Tablet Styles */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .benefits-section {
+        height: 200vh;
+    }
+
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .benefits-section {
+        height: 150vh;
+    }
+
+
+}
+
+
 .benefits-container {
     position: sticky;
     top: 0;

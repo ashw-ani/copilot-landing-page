@@ -14,6 +14,7 @@ import BenefitCards from './components/BenefitCards';
 import End from './components/End';
 import Popup from './components/Popup';
 import Technologies from './components/Technologies';
+import BrandStrip from './components/BrandStrip';
 // import MultiWindows from './components/MultiWindows';
 // import DynamicsForm from './components/DynamicsForm';
 
@@ -119,6 +120,7 @@ const testimonialdata3 = [
       <CardStack/>
       
       <BenefitCards/>
+      <BrandStrip/>
       {/* <References/> */}
       <div className='testimonials-heading'>
         <motion.h1

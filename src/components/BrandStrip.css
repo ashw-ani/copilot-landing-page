@@ -1,0 +1,130 @@
+/* Laptop Styles */
+.brand-strip {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem 0;
+    /* border-top: 1px solid #eaeaea; */
+    border-bottom: 1px solid #eaeaea;
+}
+
+.brand-strip-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.brand-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.brand-logo {
+    height: 2.5rem;
+    width: auto;
+    opacity: 1;
+    transition: scale 1.1 ease;
+    /* filter: grayscale(100%); */
+}
+
+
+
+/* Tablet Styles */
+.brand-strip-tablet {
+    width: 100vw;
+    background-color: #ffffff;
+    padding: 1.5rem 0;
+
+}
+
+.brand-strip-container-tablet {
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0 1rem;
+    overflow-x: hidden;
+
+}
+
+.brand-logos-tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 100vw;
+}
+
+.brand-logo-tablet {
+    height: 1.5rem;
+    width: auto;
+    opacity: 1;
+
+
+}
+
+
+
+/* Mobile Styles */
+.brand-strip-mobile {
+    width: 100vw;
+    background-color: #ffffff;
+    padding: 1rem 0;
+
+}
+
+.brand-strip-container-mobile {
+    width: 100vw;
+    padding: 0 01rem 0 0.3rem;
+    overflow-x: auto;
+
+}
+
+.brand-logos-mobile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100vw;
+    padding: 0.5rem 0;
+}
+
+.brand-logo-mobile {
+    height: 1rem;
+    width: auto;
+    opacity: 1;
+
+}
+
+
+
+/* Scrollbar Styling */
+.brand-strip-container-tablet::-webkit-scrollbar,
+.brand-strip-container-mobile::-webkit-scrollbar {
+    height: 4px;
+}
+
+.brand-strip-container-tablet::-webkit-scrollbar-track,
+.brand-strip-container-mobile::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.brand-strip-container-tablet::-webkit-scrollbar-thumb,
+.brand-strip-container-mobile::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+/* High DPI Screen Adjustments */
+@media (min-resolution: 144dpi) {
+    .brand-logo {
+        height: 2.25rem;
+    }
+
+    .brand-logo-tablet {
+        height: 1.75rem;
+    }
+
+    .brand-logo-mobile {
+        height: 1rem;
+    }
+} 
