@@ -90,7 +90,7 @@ const Technologies = () => {
                     muted
                     playsInline
                 >
-                    <source src="/laptop.mp4" type="video/mp4" />
+                    <source src="/laptopdark.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="tech-cards-container">
@@ -136,7 +136,7 @@ const Technologies = () => {
                     muted
                     playsInline
                 >
-                    <source src="/laptop.mp4" type="video/mp4" />
+                    <source src="/laptopdark.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="tech-cards-container-tablet">
