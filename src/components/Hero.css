@@ -29,7 +29,7 @@
 
 .hero-content {
   flex: 1;
-  max-width: 40%;
+  max-width: 35%;
   text-align: left;
   padding-right: 2rem;
   display: flex;
@@ -41,7 +41,7 @@
 
 .hero-image-container {
   flex: 1;
-  max-width: 60%;
+  max-width: 70%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -50,12 +50,13 @@
 }
 
 .hero-right-image {
-  width: 60%;
+  width: 75%;
   height: auto;
   max-height: 80vh;
   object-fit: contain;
   position: relative;
   z-index: 2;
+  left: -10%;
 }
 
 .hero-floating-image {
@@ -66,23 +67,23 @@
 }
 
 .hero-floating-image-1 {
-  width: 65%;
-  top: -65%;
-  left: -5%;
+  width: 40%;
+  top: -30%;
+  left:20%;
   z-index: 3;
 }
 
 .hero-floating-image-2 {
-  width: 50%;
-  bottom: 10%;
-  right: -10%;
+  width: 35%;
+  bottom: 25%;
+  right: 5%;
   z-index: 1;
 }
 
 .hero-floating-image-3 {
-  width: 45%;
-  top: -75%;
-  right: -7%;
+  width: 35%;
+  top: -30%;
+  right: 0%;
   z-index: 3;
 }
 
@@ -190,84 +191,159 @@
   }
 }
 
-/* Standard Media Queries */
-@media screen and (max-width: 64rem) {
-  .hero {
-    margin: 2rem clamp(1rem, 4vw, 3rem);
-  }
 
-  .hero-content {
-    padding-right: 1rem;
-  }
+
+
+
+
+/* Tablet Styles */
+.hero-container-tablet {
+  height: calc(100vh - 3.5rem);
+  top: 4rem;
 }
 
-@media screen and (max-width: 48rem) {
-  .hero {
-    flex-direction: column;
-    height: auto;
-    margin: 1rem;
-  }
+.hero-tablet {
+  height: 100%;
+  margin: 1rem clamp(1rem, 4vw, 3rem);
+  padding: 1rem;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  .hero-content,
-  .hero-image-container {
-    max-width: 100%;
-    padding-right: 0;
-  }
-
-  .hero-content {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .hero-actions {
-    justify-content: center;
-  }
-
-  .hero-image-container {
-    order: -1;
-    margin-bottom: 2rem;
-  }
-
-  .hero-right-image {
-    width: 80%;
-    max-height: 40vh;
-  }
-
-  .hero-floating-image-1 {
-    width: 25%;
-    top: 5%;
-    right: 10%;
-  }
-
-  .hero-floating-image-2 {
-    width: 20%;
-    bottom: 10%;
-    right: 5%;
-  }
-
-  .hero-floating-image-3 {
-    width: 20%;
-    bottom: 0;
-    left: 15%;
-  }
 }
 
-@media screen and (max-width: 30rem) {
-  .hero-wrapper {
-    padding: 1.5rem 1rem;
-  }
-
-  .hero-heading {
-    font-size: clamp(1.75rem, 7vw, 2.25rem);
-  }
-
-  .hero-description {
-    font-size: 1rem;
-  }
+.hero-content-tablet {
+  /* width: 100%; */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  justify-content: flex-start;
+  gap: 2rem;
 }
 
-/* Large Screen Optimizations */
-@media screen and (min-width: 120rem) {
+.hero-logo-tablet {
+  width: clamp(36px, 3.5vw, 48px);
+  margin-bottom: 4rem;
+}
+
+.hero-heading1-tablet {
+  font-size: clamp(4rem, 7vw, 5rem);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-heading2-tablet {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hero-description-tablet {
+  width: 70%;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-actions-tablet {
+  gap:1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-button-tablet {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  min-width: 8rem;
+}
+
+
+
+.hero-right-image-tablet {
+  width: 80%;
+  align-self: center;
+  left: 0;
+  
+}
+
+
+
+/* Mobile Styles */
+.hero-container-mobile {
+  height: calc(100vh - 3rem);
+  top: 3.5rem;
+}
+
+.hero-mobile {
+  flex-direction: column-reverse;
+  height: 100%;
+  margin: 1rem;
+  padding: 0.875rem;
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.hero-content-mobile {
+  max-width: 100%;
+  padding: 0;
+  align-items: center;
+  margin-top: 0rem;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+.hero-logo-mobile {
+  width: clamp(32px, 3vw, 40px);
+  margin-bottom: 2rem;
+}
+
+.hero-heading1-mobile {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.hero-heading2-mobile {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.hero-description-mobile {
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.hero-actions-mobile {
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.hero-button-mobile {
+  padding: 0.75rem 1rem;
+  font-size:1rem;
+  min-width: 6rem;
+}
+
+
+
+.hero-right-image-mobile {
+  width: 90%;
+  left: 0;
+}
+
+
+
+/* Remove old media queries since we're using react-responsive now */
+@media (min-width: 1920px) {
+  /* Keep this one for 4K screens as it affects the laptop version */
   .hero {
     max-width: 85rem;
     margin-inline: auto;
@@ -282,14 +358,7 @@
   }
 }
 
-/* 4K and Ultra-wide Displays */
-@media screen and (min-width: 160rem) {
-  .hero {
-    max-width: 100rem;
-  }
-}
-
-@media screen and (min-width: 2560px) {
+@media (min-width: 2560px) {
   .hero {
     max-width: 1800px;
     margin-left: auto;

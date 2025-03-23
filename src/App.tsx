@@ -14,7 +14,7 @@ import BenefitCards from './components/BenefitCards';
 import End from './components/End';
 import Popup from './components/Popup';
 import Technologies from './components/Technologies';
-import MultiWindows from './components/MultiWindows';
+// import MultiWindows from './components/MultiWindows';
 // import DynamicsForm from './components/DynamicsForm';
 
 
@@ -36,19 +36,19 @@ function App() {
         features: [
           {
               title: "Seamless harmonization",
-              description: "Consolidated spend data display across transient, extended stays, groups and meetings in a converged, historized overview that enables to benchmark suppliers, markets, points of sale, business divisions, and traveler personas.",
+              description: "Compare transient stays, extended stays, meetings, and group bookings in a unified dashboard.",
               video: "/Seamless_harmonization.mp4",
               cornerIcon: "/frame1.svg"
           },
           {
               title: "Intelligent Targets",
-              description: "Configure company targets and strategies to govern your lodging and meeting program. Get notified with optimization recommendations when targets are at risk.",
+              description: "Set and monitor company goals with AI-driven alerts for optimization.",
               video: "/Intelligent_Targets.mp4",
               cornerIcon: "/frame1.svg"
           },
           {
-              title: "Industry Benchmarking",
-              description: "Compare your targets, strategies and spend patterns against global and industry-specific benchmarks.",
+              title: "Performance benchmarking",
+              description: "Compare your spend patterns with industry and competitors across global benchmark",
               video: "/Industry_Benchmarking.mp4",
               cornerIcon: "/frame1.svg"
           }
@@ -61,19 +61,19 @@ const testimonialdata2 = [
     order:"row-reverse",
       features: [{
           title: "Actionable insights",
-          description: "AI-generated spend optimizations with transparent execution steps and pre-modelled risks derived from configured company targets.",
+          description: "Get transparent pro-active recommendations with clear execution steps and risk models.",
           video: "/Actionable_Insights.mp4",
           cornerIcon: "/frame1.svg"
       },
       {
-          title: "GPT",
-          description: " Interactive virtual consultant and caretaker supporting to explore insights and spend drivers",
+          title: "Interactive AI consultant",
+          description: " Ask any question to understand your business drivers and explore optimization opportunities through AI.",
           video: "/GPT.mp4",
           cornerIcon: "/frame1.svg"
       },
       {
-          title: "Full market access",
-          description: "Simplified procurement experience unlocking time for unbiased full market negotiations in 1 click.",
+          title: "Continuous learning",
+          description: "Keep a full history of targets, actions, and decisions to refine future spend strategies and track execution in real-time.",
           video: "/Full_market_access.mp4",cornerIcon: "/frame1.svg"
       }]
   }
@@ -82,18 +82,18 @@ const testimonialdata3 = [
   {   heading: "Unified data intelligence",
     order:"row",
       features: [{
-          title: "Automated Execution",
-          description: "Transparent insights into Copilots execution of your decisions with an Action Log and Easy Reporting on taken activities and performance impact.",
+          title: "Procure-to-Reclaim augmentation",
+          description: "Transform your travel management strategies through seamless Procure-to-Reclaim process amplification.",
           video: "/Automated_Execution.mp4",cornerIcon: "/frame1.svg"
       },
       {
-          title: "Continuous Learning",
-          description: "Never loose the history of targets and strategies set, spending, recommended and approved actions, and execution logs.",
+          title: "Full market access",
+          description: "Tap into unbiased, comprehensive market insights to optimize procurement in one click.",
           video: "/Continuous_Learning.mp4",cornerIcon: "/frame1.svg"
       },
       {
           title: "End-to-end integration",
-          description: "Seamlessly connect Copilot technology into your existing lodging and meetings ecosystem through HRS procure-to-reclaim platform.",
+          description: "Seamlessly connect Copilot to your lodging and meetings platform.",
           video: "/End_to_end_integration.mp4",cornerIcon: "/frame1.svg"
       }]
   }
@@ -160,7 +160,7 @@ const testimonialdata3 = [
         </motion.h1>
       </div> */}
       {/* <Features /> */}
-      <MultiWindows />
+      {/* <MultiWindows /> */}
       <Technologies/>
       <End onGetStarted={() => setIsPopupOpen(true)} />
       <Popup 

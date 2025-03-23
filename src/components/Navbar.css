@@ -110,76 +110,56 @@
   padding: 0.5rem;
 }
 
+/* Tablet Styles */
+.navbar-tablet {
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100vw;
+}
+
+.navbar-container-tablet {
+  max-width: 48rem;
+  padding: 0 1.25rem;
+}
+
+.nav-logo-tablet {
+  width: 9rem;
+  height: auto;
+}
+
+.nav-buttons-tablet {
+  gap: 0.5rem;
+}
+
+.nav-button-tablet {
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+}
+
+/* Mobile Styles */
+.navbar-mobile {
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 100vw;
+}
+
+.navbar-container-mobile {
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.nav-logo-mobile {
+  width: 6rem;
+  height: auto;
+}
+
+.nav-buttons-mobile {
+  gap: 0.25rem;
+}
+
+.nav-button-mobile {
+  padding: 0.7rem 0.8rem;
+  font-size: 0.75rem;
+}
+
 /* Updated Media Queries */
-@media (min-width: 1920px) {
-  /* For 4K screens */
-  .navbar {
-    height: 5rem;
-  }
-  
-  .navbar-container {
-    max-width: 90rem;
-    padding: 0 2rem;
-  }
-}
-
-@media (max-width: 64rem) { /* 1024px */
-  .navbar {
-    height: 3.5rem;
-  }
-
-  .navbar-container {
-    padding: 0 1.25rem;
-  }
-
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-buttons {
-    gap: 0.5rem;
-  }
-
-  .nav-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 48rem) { /* 768px */
-  .navbar {
-    height: 4rem;
-  }
-
-  .navbar-container {
-    padding: 0 1rem;
-  }
-
-  .navbar-logo {
-    font-size: 1.25rem;
-  }
-
-  .nav-buttons .sign-in {
-    display: none;
-  }
-
-  .nav-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 30rem) { /* 480px */
-  .navbar-container {
-    padding: 0 0.75rem;
-  }
-
-  .nav-buttons {
-    gap: 0.25rem;
-  }
-
-  .nav-button {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
-  }
-}

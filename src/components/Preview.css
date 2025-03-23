@@ -111,3 +111,128 @@
     height: 24px;
     fill: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Tablet Styles */
+.preview-content-tablet {
+    position: sticky;
+    top: 4rem;
+    width: 100%;
+    height: calc(100vh - 4rem);
+    padding: 3rem 0rem;
+    gap: 4rem;
+    justify-content: flex-start;
+}
+
+.preview-header-tablet h2 {
+    font-size: 4rem;
+    margin-bottom:1rem;
+}
+
+
+
+.preview-container-tablet {
+    
+
+    width: 98vw;
+    aspect-ratio: 16/9;
+    height:auto;
+    border-radius: 10px;
+}
+
+.preview-video-tablet {
+    border-radius: 10px;
+}
+
+.video-controls-tablet {
+    bottom: 15px;
+}
+
+.play-pause-btn-tablet {
+    width: 42px;
+    height: 42px;
+}
+
+.play-pause-btn-tablet svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Styles */
+.preview-content-mobile {
+    position: sticky;
+    top: 3.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    padding: 1rem 1rem;
+    gap: 6rem;
+    justify-content: center;
+    padding-bottom: 10rem;
+}
+
+.preview-header-mobile h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.preview-container-mobile {
+    width: 98vw;
+    aspect-ratio: 16/9;
+    height:auto;
+    border-radius: 8px;
+}
+
+.preview-video-mobile {
+    border-radius: 8px;
+}
+
+.video-controls-mobile {
+    bottom: 12px;
+}
+
+.play-pause-btn-mobile {
+    width: 36px;
+    height: 36px;
+}
+
+.play-pause-btn-mobile svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Remove old media queries since we're using react-responsive now */
+@media (min-resolution: 144dpi) {
+    /* Keep this one for high DPI displays */
+    .preview-header h2 {
+        font-size: 2rem;
+        margin-bottom: 0rem;
+    }
+    .preview-content {
+        top: 4rem;
+    }
+}

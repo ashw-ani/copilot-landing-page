@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 import './Testimonials.css';
 
 // Update the feature type to include cornerIcon
@@ -7,7 +8,7 @@ type Feature = {
     title: string;
     description: string;
     video: string;
-    cornerIcon: string; // Add this property
+    cornerIcon: string;
 }
 
 const Testimonials = (props: { data: any[], isReversed: boolean }) => {
@@ -17,6 +18,10 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
         target: targetRef,
         offset: ["start start", "end start"]
     });
+
+    const isLaptop = useMediaQuery({ minWidth: 1024 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+    const isMobile = useMediaQuery({ maxWidth: 767 });
 
     const testimonials = props.data;
     // const testimonials = [
@@ -69,81 +74,175 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
         return () => unsubscribe();
     }, [scrollYProgress]);
 
-    return (
-        <div className="testimonials-section" ref={targetRef}>
-            <motion.div
-                className="testimonials-container"
-                style={{
-                    backgroundColor: "rgb(12, 12, 12)"
-                }}
-            >
-                <div className='testimonials-container-heading'>{props.data[0].heading}</div>
-                {testimonials.map((testimonial, index) => (
-                    <div
-                        key={index}
-                        className="testimonial-content"
-                        style={{
-                            flexDirection: testimonial.order
-                        }}
-                    >
-                        <div className="testimonial-text">
-                            <div className="features-list">
-                                {testimonial.features.map((feature: Feature, idx: number) => (
-                                    <motion.div
-                                        key={idx}
-                                        className="testimonial-feature-item"
-                                        initial={{
-                                            opacity: idx === 0 ? 1 : 0.15,
-                                            scale: idx === 0 ? 1.05 : 1
-                                        }}
+    // Laptop Version (Original - Unchanged)
+    const LaptopTestimonials = () => (
+        <motion.div className="testimonials-container">
+            <div className='testimonials-container-heading'>{props.data[0].heading}</div>
+            {testimonials.map((testimonial, index) => (
+                <div
+                    key={index}
+                    className="testimonial-content"
+                    style={{
+                        flexDirection: testimonial.order
+                    }}
+                >
+                    <div className="testimonial-text">
+                        <div className="features-list">
+                            {testimonial.features.map((feature: Feature, idx: number) => (
+                                <motion.div
+                                    key={idx}
+                                    className="testimonial-feature-item"
+                                    initial={{
+                                        opacity: idx === 0 ? 1 : 0.15,
+                                        scale: idx === 0 ? 1.05 : 1
+                                    }}
+                                    style={{
+                                        scale: idx === 0 ? feature1Scale : idx === 1 ? feature2Scale : feature3Scale,
+                                        opacity: idx === 0 ? feature1Opacity : idx === 1 ? feature2Opacity : feature3Opacity,
+                                    }}
+                                    transition={{
+                                        scale: { duration: 0.3 },
+                                        opacity: { duration: 0.3 }
+                                    }}
+                                >
+                                    <motion.img 
+                                        src={feature.cornerIcon}
+                                        alt=""
+                                        className="feature-corner-icon"
                                         style={{
-                                            scale: idx === 0 ? feature1Scale : idx === 1 ? feature2Scale : feature3Scale,
-                                            opacity: idx === 0 ? feature1Opacity : idx === 1 ? feature2Opacity : feature3Opacity,
+                                            opacity: idx === activeFeature ? 1 : 0
                                         }}
                                         transition={{
-                                            scale: { duration: 0.3 },
-                                            opacity: { duration: 0.3 }
+                                            opacity: { duration: 0.22 }
                                         }}
-                                    >
-                                        <motion.img 
-                                            src={feature.cornerIcon}
-                                            alt=""
-                                            className="feature-corner-icon"
-                                            style={{
-                                                opacity: idx === activeFeature ? 1 : 0
-                                            }}
-                                            transition={{
-                                                opacity: { duration: 0.22 }
-                                            }}
-                                        />
-                                        <h3>{feature.title}</h3>
-                                        <p>{feature.description}</p>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="testimonial-media">
-                            <div className="media-container">
-                                {testimonial.features.map((feature: { video: string }, idx: number) => (
-                                    <motion.video
-                                        key={idx}
-                                        className="testimonial-video"
-                                        playsInline
-                                        muted
-                                        loop
-                                        autoPlay
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: currentVideo === idx ? 1 : 0 }}
-                                        transition={{ duration: 0.5 }}
-                                    >
-                                        <source src={feature.video} type="video/mp4" />
-                                    </motion.video>
-                                ))}
-                            </div>
+                                    />
+                                    <h3>{feature.title}</h3>
+                                    <p>{feature.description}</p>
+                                </motion.div>
+                            ))}
                         </div>
                     </div>
+                    <div className="testimonial-media">
+                        <div className="media-container">
+                            {testimonial.features.map((feature: { video: string }, idx: number) => (
+                                <motion.video
+                                    key={idx}
+                                    className="testimonial-video"
+                                    playsInline
+                                    muted
+                                    loop
+                                    autoPlay
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: currentVideo === idx ? 1 : 0 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <source src={feature.video} type="video/mp4" />
+                                </motion.video>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </motion.div>
+    );
+
+    // Tablet Version
+    const TabletTestimonials = () => (
+        <div className="testimonials-wrapper-tablet">
+            <motion.div className="testimonials-viewport-container-tablet">
+                <div className='testimonials-container-heading-tablet'>{props.data[0].heading}</div>
+                {testimonials.map((testimonial) => (
+                    testimonial.features.map((feature: Feature, idx: number) => (
+                        <motion.div
+                            key={idx}
+                            className="testimonial-block-tablet"
+                            initial={{ opacity: 0 }}
+                            animate={{ 
+                                opacity: currentVideo === idx ? 1 : 0,
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut"
+                            }}
+                        >
+                            <div className="testimonial-video-wrapper-tablet">
+                                <video
+                                    className="testimonial-video-tablet"
+                                    playsInline
+                                    muted
+                                    loop
+                                    autoPlay
+                                >
+                                    <source src={feature.video} type="video/mp4" />
+                                </video>
+                            </div>
+                            <div className="testimonial-content-block-tablet">
+                                <motion.img 
+                                    src={feature.cornerIcon}
+                                    alt=""
+                                    className="feature-corner-icon-tablet"
+                                />
+                                <h3>{feature.title}</h3>
+                                <p>{feature.description}</p>
+                            </div>
+                        </motion.div>
+                    ))
                 ))}
             </motion.div>
+        </div>
+    );
+
+    // Mobile Version
+    const MobileTestimonials = () => (
+        <div className="testimonials-wrapper-mobile">
+            <motion.div className="testimonials-viewport-container-mobile">
+                <div className='testimonials-container-heading-mobile'>{props.data[0].heading}</div>
+                {testimonials.map((testimonial) => (
+                    testimonial.features.map((feature: Feature, idx: number) => (
+                        <motion.div
+                            key={idx}
+                            className="testimonial-block-mobile"
+                            initial={{ opacity: 0 }}
+                            animate={{ 
+                                opacity: currentVideo === idx ? 1 : 0,
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                ease: "easeOut"
+                            }}
+                        >
+                            <div className="testimonial-video-wrapper-mobile">
+                                <video
+                                    className="testimonial-video-mobile"
+                                    playsInline
+                                    muted
+                                    loop
+                                    autoPlay
+                                >
+                                    <source src={feature.video} type="video/mp4" />
+                                </video>
+                            </div>
+                            <div className="testimonial-content-block-mobile">
+                                <motion.img 
+                                    src={feature.cornerIcon}
+                                    alt=""
+                                    className="feature-corner-icon-mobile"
+                                />
+                                <h3>{feature.title}</h3>
+                                <p>{feature.description}</p>
+                            </div>
+                        </motion.div>
+                    ))
+                ))}
+            </motion.div>
+        </div>
+    );
+
+    return (
+        <div className="testimonials-section" ref={targetRef}>
+            {isLaptop && <LaptopTestimonials />}
+            {isTablet && <TabletTestimonials />}
+            {isMobile && <MobileTestimonials />}
         </div>
     );
 };

@@ -20,14 +20,15 @@
     font-size: 2.5rem;
     position: absolute;
     z-index: 1;
-    top: 1.5rem;
+    top: 2.5rem;
     color: rgb(0, 0, 0);
-    /* margin-bottom: 1.5rem; */
     font-weight: 700;
     width: 100%;
     line-height: 1.2;
-    /* background-color: rgb(12, 12, 12); */
     background-color: #fefefe;    
+    text-align: center;
+    padding: 0 1rem;
+    letter-spacing: normal;
 }
 
 .card-stack {
@@ -130,6 +131,8 @@
     line-height: 1.4;
 }
 
+
+
 /* Stacking styles */
 .stack-card:nth-child(1) {
     transform: translateY(0) ;
@@ -146,72 +149,127 @@
     z-index: 3;
 }
 
-/* Media Queries */
-@media (min-width: 120rem) { /* 1920px */
-    .stack-container {
-        max-width: 43.75rem;
-    }
 
-    .stack-card {
-        width: 60%;
+
+
+
+
+
+
+
+
+
+/* Tablet Styles */
+.card-stack-tablet {
+    padding: 0 1.5rem;
+    min-height: calc(100vh - 4.5rem);
+}
+
+.stack-card-tablet {
+    width: 40rem;
+    border-radius: 1rem;
+    box-shadow: 0 2rem 4rem #fefefe98;
+}
+.stack-heading-tablet{
+    height:7rem;
+    font-size: 2rem;
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    z-index: 10;
+    background-color: #fefefe;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+}
+
+.stack-card-media-tablet {
+    padding-top: 52%;
+}
+
+.stack-card-content-tablet {
+    padding: clamp(0.875rem, 1.75vw, 1.75rem) clamp(0.875rem, 1.25vw, 1.25rem);
+}
+
+.stack-card-tablet h2 {
+    font-size: clamp(1.125rem, 1.75vw, 1.75rem);
+    margin: 0 0 0.375rem 0;
+}
+
+.caption-tablet {
+    font-size: clamp(0.8125rem, 0.875vw, 0.875rem);
+}
+
+
+
+
+
+
+
+
+
+/* Mobile Styles */
+.card-stack-mobile {
+    padding: 0 1rem;
+    min-height: calc(100vh - 4rem);
+}
+.stack-heading-mobile{
+    height:10rem;
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    z-index: 10;
+    background-color: #fefefe;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+}
+
+.stack-card-mobile {
+    width: clamp(14rem, 85%, 20rem);
+    border-radius: 0.875rem;
+    box-shadow: 0 1.5rem 3rem #fefefe98;
+}
+
+.stack-card-media-mobile {
+    padding-top: 56%;
+}
+
+.stack-card-content-mobile {
+    padding: clamp(0.75rem, 1.5vw, 1.5rem) clamp(0.75rem, 1vw, 1rem);
+}
+
+.stack-card-mobile h2 {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    margin: 0 0 0.25rem 0;
+}
+
+.caption-mobile {
+    font-size: clamp(0.75rem, 0.8125vw, 0.8125rem);
+}
+
+/* Adjust heading sizes for different screens */
+@media (max-width: 1023px) {
+    .stack-heading {
+        font-size: 2.25rem;
+        top: 2rem;
     }
 }
 
-@media (max-width: 64rem) { /* 1024px */
-    .card-stack {
-        padding: clamp(1.5rem, 3vw, 4rem);
-    }
-
-    .stack-card {
-        width: 70%;
-    }
-}
-
-@media (max-width: 48rem) { /* 768px */
-    .card-stack {
-        padding: 1rem;
-        min-height: calc(100vh - 4rem);
-    }
-
-    .stack-container {
-        padding: 2rem;
-    }
-
-    .stack-card {
-        width: 85%;
-    }
-
-    .stack-card-content {
-        padding: 1rem;
-    }
-
-    .stack-card:nth-child(1) {
-        transform: translateY(0);
-        opacity: 0.5;
-    }
-
-    .stack-card:nth-child(2) {
-        transform: translateY(0);
-        opacity: 0.75;
-    }
-
-    .stack-card:nth-child(3) {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@media (max-width: 30rem) { /* 480px */
-    .stack-card {
-        width: 90%;
-    }
-
-    .stack-card-content {
-        padding: 0.75rem;
-    }
-
-    .stack-card h2 {
-        font-size: 1.25rem;
+@media (max-width: 767px) {
+    .stack-heading {
+        font-size: 1.875rem;
+        top: 1rem;
+        padding: 0 0.75rem;
     }
 }
 
@@ -224,4 +282,14 @@
     .stack-card-content {
         padding: clamp(0.875rem, 1.5vw, 1.5rem);
     }
+
+    .stack-card-tablet {
+        width: 90%;
+    }
+
+    .stack-card-mobile {
+        width: 90%;
+    }
 }
+
+
