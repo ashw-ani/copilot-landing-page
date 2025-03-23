@@ -275,9 +275,7 @@
 
 /* High DPI Screens */
 @media screen and (min-resolution: 192dpi) {
-    .stack-card {
-        width: clamp(16rem, 55%, 22rem);
-    }
+    
 
     .stack-card-content {
         padding: clamp(0.875rem, 1.5vw, 1.5rem);

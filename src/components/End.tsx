@@ -18,52 +18,52 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
         <div className="end-section">
                 <div className="end-content">
                     <div className="end-content-text"><h2>You are the pilot – and we're your Copilot</h2>
-                    <motion.img
-                            src="/frame1.svg"
-                            alt="Copilot Logo"
+                <motion.img
+                    src="/frame1.svg"
+                    alt="Copilot Logo"
                             className="hero-logo-end"
-                            style={{ 
-                                perspective: 1000,
-                                transformStyle: "preserve-3d"
-                            }}
+                    style={{ 
+                        perspective: 1000,
+                        transformStyle: "preserve-3d"
+                    }}
                             initial={{ 
                                 opacity: 1, 
                                 x: -200,
                                 y: -200 
                             }}
-                            animate={{ 
-                                opacity: 1,
+                    animate={{ 
+                        opacity: 1,
                                 x: 0,
-                                y: [0, -10, 0, -10, 0, 0, 0],
-                                rotateY: [0, 0, 0, 0, 0, 360, 360],
-                                scale: [1, 1, 1, 1, 1, 1.1, 1],
+                        y: [0, -10, 0, -10, 0, 0, 0],
+                        rotateY: [0, 0, 0, 0, 0, 360, 360],
+                        scale: [1, 1, 1, 1, 1, 1.1, 1],
                             }}
                             transition={{
                                 opacity: { duration: 5, ease: "easeOut" },
                                 x: { duration: 2.5, ease: [0.16, 1, 0.3, 1] },
-                                y: {
-                                    times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
-                                    duration: 8,
-                                    repeat: Infinity,
+                            y: {
+                                times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
+                                duration: 8,
+                                repeat: Infinity,
                                     ease: "easeInOut",
                                     delay: 2.5
-                                },
-                                rotateY: {
-                                    times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
-                                    duration: 8,
-                                    repeat: Infinity,
+                            },
+                            rotateY: {
+                                times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
+                                duration: 8,
+                                repeat: Infinity,
                                     ease: "easeInOut",
                                     delay: 2.5
-                                },
-                                scale: {
-                                    times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
-                                    duration: 8,
-                                    repeat: Infinity,
+                            },
+                            scale: {
+                                times: [0, 0.15, 0.3, 0.45, 0.6, 0.8, 1],
+                                duration: 8,
+                                repeat: Infinity,
                                     ease: "easeInOut",
                                     delay: 2.5
-                                }
-                            }}
-                        />
+                        }
+                    }}
+                />
                     </div>
                     
                     <p>Ready to step into the future of corporate travel?</p>
@@ -72,8 +72,8 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                             Get started
                         </button>
                         <button className="contact-sales">Contact Us</button>
-                    </div>
                 </div>
+            </div>
             <div className="footer-links">
                 <p className="trust-text">HRS. Trusted by over 500 global enterprises</p>
                 <div className="links">

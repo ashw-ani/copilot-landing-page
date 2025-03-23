@@ -28,8 +28,8 @@
 
 .popup-floating-icon {
     position: absolute;
-    top: -4rem;
-    left: -4rem;
+    top: -3rem;
+    left: -2rem;
     transform: translateX(-50%,-50%);
     width: 8rem;
     height: 8rem;
@@ -152,7 +152,57 @@
 
 @media (max-width: 640px) {
     .popup-content {
-        padding: 1.5rem;
-        width: 95%;
+        padding: 1.25rem;
+        width: 90%;
+        border-radius: 20px 20px;
+        margin-top: 1rem;
+    }
+
+    .popup-floating-icon {
+        width: 6rem;
+        height: 6rem;
+        top: -3.5rem;
+        left: 1rem;
+    }
+
+    .popup-header {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .popup-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-group label {
+        font-size: 0.875rem;
+    }
+
+    .form-group input {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    .submit-button {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.75rem;
+    }
+
+    .popup-close svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .popup-content {
+        padding: 1rem;
+    }
+
+    .popup-floating-icon {
+        width: 5rem;
+        height: 5rem;
+        top: -1.5rem;
+        left: -0.75rem;
     }
 } 

@@ -76,15 +76,6 @@
     gap: 4rem;
     flex-direction: row;
 }
-
-@media (min-resolution: 144dpi) {
-    .testimonial-content {
-        
-        margin-top: 0rem;
-        align-self: center;
-      zoom: 0.65; 
-    }
-  }
 @media (min-resolution: 120dpi) {
     .testimonial-content {
         
@@ -93,6 +84,15 @@
       zoom: 0.8; 
     }
   }
+@media (min-resolution: 144dpi) {
+    .testimonial-content {
+        
+        margin-top: 0rem;
+        align-self: center;
+      zoom: 0.67; 
+    }
+  }
+
 
 .testimonial-text {
     flex: 1;

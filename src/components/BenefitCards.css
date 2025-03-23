@@ -51,7 +51,13 @@
 .benefits-title p {
     font-size: 1.2rem;
     color: #b2bfd2;
-}
+} 
+ @media (min-resolution: 120dpi) {
+    .benefits-title h2 {
+      zoom: 0.80; 
+      margin-top: -2.5rem;
+    }
+  }
 @media (min-resolution: 144dpi) {
     .benefits-title h2 {
       zoom: 0.67; 
@@ -59,12 +65,7 @@
     }
   }
 
-  @media (min-resolution: 120dpi) {
-    .benefits-title h2 {
-      zoom: 0.80; 
-      margin-top: -2.5rem;
-    }
-  }
+
 
 .benefits-grid {
     position: relative;
@@ -77,13 +78,6 @@
     margin: 0 auto;
     overflow: hidden;
 }
-@media (min-resolution: 144dpi) {
-    .benefits-grid {
-        margin-top: 0rem;
-      zoom: 0.67; 
-
-    }
-  }
 @media (min-resolution: 120dpi) {
     .benefits-grid {
         margin-top: 0rem;
@@ -91,6 +85,14 @@
 
     }
   }
+@media (min-resolution: 144dpi) {
+    .benefits-grid {
+        margin-top: 0rem;
+      zoom: 0.67; 
+
+    }
+  }
+
 
 @keyframes fadeInScroll {
     from {
