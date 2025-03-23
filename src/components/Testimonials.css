@@ -92,6 +92,13 @@
       zoom: 0.67; 
     }
   }
+@media (min-resolution: 192dpi) {
+    .testimonial-content {
+        margin-top: 0rem;
+        align-self: center;
+      zoom: 0.80; 
+    }
+  }
 
 
 .testimonial-text {

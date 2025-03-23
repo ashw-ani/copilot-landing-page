@@ -92,6 +92,13 @@
 
     }
   }
+@media (min-resolution: 192dpi) {
+    .benefits-grid {
+        margin-top: 0rem;
+      zoom: 0.80; 
+
+    }
+  }
 
 
 @keyframes fadeInScroll {
