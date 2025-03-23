@@ -299,7 +299,7 @@
 }
 
 .tech-card-tablet p b {
-    display: block;
+    /* display: block; */
     font-size: 1.2rem;
     margin-bottom: 0.75rem;
     color: #000000;
@@ -400,17 +400,17 @@
 }
 
 .tech-card-mobile p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
     color: #333333;
 }
 
-.tech-card-mobile p b {
+/* .tech-card-mobile p b {
     display: block;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: #000000;
-}
+} */
 
 /* High DPI Screen Adjustments */
 @media (min-resolution: 120dpi) {

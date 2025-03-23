@@ -32,7 +32,7 @@ function App() {
   };
 
   const testimonialdata1 = [
-    {   heading: "One-click execution",
+    {   heading: "Unified data intelligence",
         order:"row",
         features: [
           {
@@ -80,7 +80,7 @@ const testimonialdata2 = [
   }
 ]
 const testimonialdata3 = [
-  {   heading: "Unified data intelligence",
+  {   heading: "One-click execution",
     order:"row",
       features: [{
           title: "Procure-to-Reclaim augmentation",

@@ -71,7 +71,7 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                         <button className="get-started" onClick={onGetStarted}>
                             Get started
                         </button>
-                        <button className="contact-sales">Contact Us</button>
+                        {/* <button className="contact-sales">Contact Us</button> */}
                 </div>
             </div>
             <div className="footer-links">
@@ -145,7 +145,7 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                         <button className="get-started-tablet" onClick={onGetStarted}>
                             Get started
                         </button>
-                        <button className="contact-sales-tablet">Contact Us</button>
+                        {/* <button className="contact-sales-tablet">Contact Us</button> */}
                     </div>
                 </div>
             
@@ -219,7 +219,7 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                         <button className="get-started-mobile" onClick={onGetStarted}>
                             Get started
                         </button>
-                        <button className="contact-sales-mobile">Contact Us</button>
+                        {/* <button className="contact-sales-mobile">Contact Us</button> */}
                     </div>
                 </div>
             </div>

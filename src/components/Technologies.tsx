@@ -187,25 +187,25 @@ const Technologies = () => {
                         className="tech-card-mobile"
                         style={{ opacity: cardOpacity1 }}
                     >
-                        <p>Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds 1.5 billion rate impressions, 100.000 corporate rates, 700.000 rate audits, 2-digit million payment and invoice insights</p>
+                        <p> <b>AI Model</b> : Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds 1.5 billion rate impressions, 100.000 corporate rates, 700.000 rate audits, 2-digit million payment and invoice insights</p>
                     </motion.div>
                     <motion.div 
                         className="tech-card-mobile"
                         style={{ opacity: cardOpacity2 }}
                     >
-                        <p> Copilot is hosted on HRS' vetted and infinitely scalable cloud infrastructure trusted by Fortune 500 companies and government organizations globally.</p>
+                        <p><b>Cloud</b> : Copilot is hosted on HRS' vetted and infinitely scalable cloud infrastructure trusted by Fortune 500 companies and government organizations globally.</p>
                     </motion.div>
                     <motion.div 
                         className="tech-card-mobile"
                         style={{ opacity: cardOpacity3 }}
                     >
-                        <p> Copilot API seamlessly connects into your existing lodging and meetings ecosystem. Automatically ingest spend from TMC, OBT, Chain and Expense systems and export insightful reports into inhouse data and process tools.</p>
+                        <p><b>Open Platform</b> : Copilot API seamlessly connects into your existing lodging and meetings ecosystem. Automatically ingest spend from TMC, OBT, Chain and Expense systems and export insightful reports into inhouse data and process tools.</p>
                     </motion.div>
                     <motion.div 
                         className="tech-card-mobile"
                         style={{ opacity: cardOpacity4 }}
                     >
-                        <p> Copilot's model operated under privacy per company account and is quality-controlled against hallucinations. Copilot infrastructure is compliant with GDPR, PCI-DSS, CSRD, ISO14067, TISAX.</p>
+                        <p> <b>Security</b> : Copilot's model operated under privacy per company account and is quality-controlled against hallucinations. Copilot infrastructure is compliant with GDPR, PCI-DSS, CSRD, ISO14067, TISAX.</p>
                     </motion.div>
                 </div>
             </div>

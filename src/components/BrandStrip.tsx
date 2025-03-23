@@ -12,6 +12,7 @@ const BrandStrip: React.FC = () => {
     const LaptopBrandStrip = () => (
         <div className="brand-strip">
             <div className="brand-strip-container">
+                <h2 className="brand-strip-heading">Leading Enterprises Trust Copilot</h2>
                 <motion.div 
                     className="brand-logos"
                     initial={{ opacity: 0 }}
@@ -32,6 +33,7 @@ const BrandStrip: React.FC = () => {
     const TabletBrandStrip = () => (
         <div className="brand-strip-tablet">
             <div className="brand-strip-container-tablet">
+                <h2 className="brand-strip-heading-tablet">Leading Enterprises Trust Copilot</h2>
                 <motion.div 
                     className="brand-logos-tablet"
                     initial={{ opacity: 0 }}
@@ -51,6 +53,7 @@ const BrandStrip: React.FC = () => {
     const MobileBrandStrip = () => (
         <div className="brand-strip-mobile">
             <div className="brand-strip-container-mobile">
+                <h2 className="brand-strip-heading-mobile">Leading Enterprises Trust Copilot</h2>
                 <motion.div 
                     className="brand-logos-mobile"
                     initial={{ opacity: 0 }}
