@@ -47,6 +47,14 @@
         color: #000000;
         animation:fadeIn 1s ease-in-out;    }
   }
+@media (min-resolution: 120dpi) {
+    .technologies-heading {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 3rem;
+        color: #000000;
+        animation:fadeIn 1s ease-in-out;    }
+  }
 
 .video-container {
     width: 100%;
@@ -143,9 +151,12 @@
 @media (min-resolution: 144dpi) {
     .tech-card {
       zoom: 0.67; 
-    }
-
-    
+    } 
+  }
+@media (min-resolution: 120dpi) {
+    .tech-card {
+      zoom: 0.80; 
+    } 
   }
 
 .tech-card:nth-child(1) {
