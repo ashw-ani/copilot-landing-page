@@ -51,12 +51,12 @@ const CardStack = () => {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     // Create inView states
-    const firstCardInView = useInView(firstCardRef, { once: false, amount: 0.3 });
-    const secondCardInView = useInView(secondCardRef, { once: false, amount: 0.3 });
-    const thirdCardInView = useInView(thirdCardRef, { once: false, amount: 0.3 });
-    const cardInViews = useMemo(() => [firstCardInView, secondCardInView, thirdCardInView],
-        [firstCardInView, secondCardInView, thirdCardInView]);
-    console.log(cardInViews);
+    // const firstCardInView = useInView(firstCardRef, { once: false, amount: 0.3 });
+    // const secondCardInView = useInView(secondCardRef, { once: false, amount: 0.3 });
+    // const thirdCardInView = useInView(thirdCardRef, { once: false, amount: 0.3 });
+    // const cardInViews = useMemo(() => [firstCardInView, secondCardInView, thirdCardInView],
+    //     [firstCardInView, secondCardInView, thirdCardInView]);
+    // cardInViews&& console.log("") 
     // Create separate refs for each video and viewport detection
     const videoObservers = useRef<IntersectionObserver[]>([]);
 
@@ -82,12 +82,12 @@ const CardStack = () => {
                 (entries) => {
                     const [entry] = entries;
                     if (entry.isIntersecting) {
-                        console.log(`Video ${index + 1} entered viewport`);
+                        // console.log(`Video ${index + 1} entered viewport`);
                         video.play().catch(error => {
                             console.error('Error playing video:', error);
                         });
                     } else {
-                        console.log(`Video ${index + 1} left viewport`);
+                        // console.log(`Video ${index + 1} left viewport`);
                 video.pause();
                     }
                 },

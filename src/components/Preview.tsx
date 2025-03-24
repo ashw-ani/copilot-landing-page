@@ -29,19 +29,19 @@ const Preview = () => {
         
         if (!video) return;
 
-        console.log('Initializing preview video playback');
+        // console.log('Initializing preview video playback');
         video.muted = true;
         video.playsInline = true; // Ensure inline playback
         video.setAttribute('playsinline', ''); // For iOS Safari
         video.setAttribute('webkit-playsinline', ''); // For older iOS
 
         const handlePlay = () => {
-            console.log('Preview video play event triggered');
+            // console.log('Preview video play event triggered');
             setIsPlaying(true);
         };
 
         const handlePause = () => {
-            console.log('Preview video pause event triggered');
+            // console.log('Preview video pause event triggered');
             setIsPlaying(false);
         };
 
@@ -77,7 +77,7 @@ const Preview = () => {
                     console.log('Preview video entered viewport at threshold');
                     playVideo();
                 } else {
-                    console.log('Preview video left viewport');
+                    // console.log('Preview video left viewport');
                     pauseVideo();
                 }
             },
