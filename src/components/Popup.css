@@ -36,6 +36,13 @@
     perspective: 1000px;
     z-index: 1002;
 }
+.visible-form{
+visibility: visible;
+}
+.hidden-form{
+visibility: hidden;
+}
+
 
 .popup-floating-icon img {
     width: 100%;

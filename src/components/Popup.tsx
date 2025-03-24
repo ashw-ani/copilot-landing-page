@@ -46,8 +46,8 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
 
     return (
         <AnimatePresence>
-            {isOpen && (
-                <>
+            
+                <div className={isOpen ? 'visible-form' : 'hidden-form'}>
                     <motion.div 
                         className="popup-backdrop"
                         // initial={{ opacity: 0 }}
@@ -119,8 +119,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                         <DynamicsForm />
                         
                     </motion.div>
-                </>
-            )}
+                </div>
         </AnimatePresence>
     );
 };
