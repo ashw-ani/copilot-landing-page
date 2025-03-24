@@ -38,9 +38,11 @@
 }
 .visible-form{
 visibility: visible;
+display: block;
 }
 .hidden-form{
 visibility: hidden;
+display: none;
 }
 
 
