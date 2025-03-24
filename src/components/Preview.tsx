@@ -147,7 +147,7 @@ const Preview = () => {
                     autoPlay
                     preload="auto"
                 >
-                    <source src="/intro_video.mp4" type="video/mp4" />
+                    <source src="/intronewdark.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="video-controls">
@@ -197,7 +197,7 @@ const Preview = () => {
                     autoPlay
                     preload="auto"
                 >
-                    <source src="/intro_video.mp4" type="video/mp4" />
+                    <source src="/intronewdark.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="video-controls video-controls-tablet">
@@ -247,7 +247,7 @@ const Preview = () => {
                     autoPlay
                     preload="auto"
                 >
-                    <source src="/intro_video.mp4" type="video/mp4" />
+                    <source src="/intronewdark.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div className="video-controls video-controls-mobile">

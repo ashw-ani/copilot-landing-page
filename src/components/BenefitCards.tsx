@@ -41,25 +41,25 @@ const BenefitCards = () => {
         {
             title: "80% Time Saved",
             description: "Automate approvals and streamline workflows in real time",
-            icon: "⏱️",
+            icon: "/clock.svg",
             cornerImage: "/frame1.svg"
         },
         {
             title: "+20%  Traveler Satisfaction",
             description: "Empower travelers while maintaining full control over your program",
-            icon: "😊",
+            icon: "/satisfaction.svg",
             cornerImage: "/frame1.svg"
         },
         {
             title: "100% Compliance",
             description: "Ensure adherence to company guidelines and avoid unnecessary costs",
-            icon: "✓",
+            icon: "/compliance.svg",
             cornerImage: "/frame1.svg"
         },
         {
             title: "+20% Savings",
             description: "Unlock hidden savings through AI-powered spend and leakage optimization",
-            icon: "💰",
+            icon: "/savings.svg",
             cornerImage: "/frame1.svg"
         }
     ];
@@ -108,7 +108,9 @@ const BenefitCards = () => {
                                     opacity: animations.cornerOpacity
                                 }}
                             />
-                            <div className="benefit-icon">{benefit.icon}</div>
+                            <div className="benefit-icon">
+                                <img src={benefit.icon} alt="" />
+                            </div>
                             <h3>{benefit.title}</h3>
                             <p>{benefit.description}</p>
                         </motion.div>
@@ -132,16 +134,12 @@ const BenefitCards = () => {
             </motion.div>
             <div className="benefits-grid benefits-grid-tablet">
                 {benefits.map((benefit, index) => {
-                    // const animations = getCardAnimation(index);
                     return (
                         <motion.div
                             key={benefit.title}
                             className={`benefit-card benefit-card-tablet benefit-card-${index + 1}-tablet`}
                             style={{
-                                // opacity: animations.opacity,
-                                // y: animations.y
                                 opacity: 1,
-                                
                             }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
@@ -151,11 +149,12 @@ const BenefitCards = () => {
                                 className="corner-image corner-image-tablet"
                                 loading="lazy"
                                 style={{
-                                    // opacity: animations.cornerOpacity
                                     opacity: 0
                                 }}
                             />
-                            <div className="benefit-icon benefit-icon-tablet">{benefit.icon}</div>
+                            <div className="benefit-icon benefit-icon-tablet">
+                                <img src={benefit.icon} alt="" />
+                            </div>
                             <h3>{benefit.title}</h3>
                             <p>{benefit.description}</p>
                         </motion.div>
@@ -179,16 +178,12 @@ const BenefitCards = () => {
             </motion.div>
             <div className="benefits-grid benefits-grid-mobile">
                 {benefits.map((benefit, index) => {
-                    // const animations = getCardAnimation(index);
                     return (
                         <motion.div
                             key={benefit.title}
                             className={`benefit-card benefit-card-mobile benefit-card-${index + 1}-mobile`}
                             style={{
-                                // opacity: animations.opacity,
-                                // y: animations.y
                                 opacity: 1,
-                                
                             }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
@@ -198,11 +193,12 @@ const BenefitCards = () => {
                                 className="corner-image corner-image-mobile"
                                 loading="lazy"
                                 style={{
-                                    // opacity: animations.cornerOpacity
                                     opacity: 0
                                 }}
                             />
-                            <div className="benefit-icon benefit-icon-mobile">{benefit.icon}</div>
+                            <div className="benefit-icon benefit-icon-mobile">
+                                <img src={benefit.icon} alt="" />
+                            </div>
                             <h3>{benefit.title}</h3>
                             <p>{benefit.description}</p>
                         </motion.div>
