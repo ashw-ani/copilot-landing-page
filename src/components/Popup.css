@@ -26,6 +26,7 @@
     z-index: 1001;
 }
 
+
 .popup-floating-icon {
     position: absolute;
     top: -3rem;
@@ -60,6 +61,17 @@ display: none;
     margin-bottom: 1.5rem;
     margin-top: 2rem;
 }
+
+
+@media (min-resolution: 144dpi) {
+    .popup-content {padding: 0 2rem;}
+    .popup-header {
+
+        margin: 0;
+
+    }
+}
+
 
 .popup-header h2 {
     margin: 0;
