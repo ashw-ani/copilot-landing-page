@@ -279,6 +279,9 @@
     height: 100%;
     object-fit: cover;
     transition: opacity 0.5s ease-in-out;
+    will-change: opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .testimonial-content-block-tablet {
@@ -366,6 +369,9 @@
     height: 100%;
     object-fit: contain;
     transition: opacity 0.5s ease-in-out;
+    will-change: opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .testimonial-content-block-mobile {
@@ -441,4 +447,11 @@
 @keyframes loading {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
+}
+
+/* Optimize video performance */
+video {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
 }

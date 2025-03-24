@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, RefObject } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import './Testimonials.css';
@@ -14,6 +14,8 @@ type Feature = {
 const Testimonials = (props: { data: any[], isReversed: boolean }) => {
     const targetRef = useRef<HTMLDivElement>(null);
     const [currentVideo, setCurrentVideo] = useState(0);
+    const [videosLoaded, setVideosLoaded] = useState<boolean[]>([]);
+    const videoRefs = useRef<RefObject<HTMLVideoElement>[]>([]);
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start start", "end start"]
@@ -56,6 +58,103 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
 
     // Add state for active feature
     const [activeFeature, setActiveFeature] = useState(0);
+
+    // Initialize video refs and start preloading immediately
+    useEffect(() => {
+        if (!testimonials || !testimonials[0]?.features) return;
+
+        // Create refs and preload elements
+        videoRefs.current = testimonials[0].features.map(() => React.createRef<HTMLVideoElement>());
+        setVideosLoaded(new Array(testimonials[0].features.length).fill(false));
+
+        // Immediately start preloading all videos
+        testimonials[0].features.forEach((feature: Feature, index: number) => {
+            // Create a hidden video element for preloading
+            const preloadVideo = document.createElement('video');
+            preloadVideo.style.display = 'none';
+            preloadVideo.preload = 'auto';
+            
+            // Create source element
+            const source = document.createElement('source');
+            source.src = feature.video;
+            source.type = 'video/mp4';
+            
+            // Add source to video
+            preloadVideo.appendChild(source);
+            
+            // Start loading
+            preloadVideo.load();
+            
+            // Listen for when it's loaded
+            preloadVideo.addEventListener('loadeddata', () => {
+                setVideosLoaded(prev => {
+                    const newState = [...prev];
+                    newState[index] = true;
+                    return newState;
+                });
+
+                // Once loaded, update the actual video element
+                if (videoRefs.current[index].current) {
+                    const actualVideo = videoRefs.current[index].current!;
+                    actualVideo.src = feature.video;
+                    actualVideo.load();
+                }
+            });
+
+            // Append to document temporarily
+            document.body.appendChild(preloadVideo);
+            
+            // Remove after starting the load
+            setTimeout(() => {
+                document.body.removeChild(preloadVideo);
+            }, 0);
+        });
+
+        // Cleanup function
+        return () => {
+            videoRefs.current.forEach(ref => {
+                if (ref.current) {
+                    ref.current.src = '';
+                    ref.current.load();
+                }
+            });
+        };
+    }, [testimonials]);
+
+    // Configure video elements when they're mounted
+    useEffect(() => {
+        if (!testimonials || !testimonials[0]?.features) return;
+
+        videoRefs.current.forEach((videoRef, index) => {
+            if (videoRef.current) {
+                const video = videoRef.current;
+                video.muted = true;
+                video.playsInline = true;
+                video.loop = true;
+                video.preload = 'auto';
+                
+                // Set initial source if not already set
+                if (!video.src && testimonials[0].features[index]) {
+                    video.src = testimonials[0].features[index].video;
+                }
+            }
+        });
+    }, [testimonials]);
+
+    // Update video playback based on current video
+    useEffect(() => {
+        videoRefs.current.forEach((videoRef, index) => {
+            if (videoRef.current) {
+                if (index === currentVideo) {
+                    if (videosLoaded[index]) {
+                        videoRef.current.play().catch(console.error);
+                    }
+                } else {
+                    videoRef.current.pause();
+                }
+            }
+        });
+    }, [currentVideo, videosLoaded]);
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.on("change", (value) => {
@@ -146,6 +245,18 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
         </motion.div>
     );
 
+    // Update the video elements in tablet and mobile versions
+    const videoProps = {
+        playsInline: true,
+        muted: true,
+        loop: true,
+        preload: "auto" as const,
+        style: { 
+            opacity: 1,
+            display: 'block'
+        }
+    };
+
     // Tablet Version
     const TabletTestimonials = () => (
         <div className="testimonials-wrapper-tablet">
@@ -167,16 +278,9 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                         >
                             <div className="testimonial-video-wrapper-tablet">
                                 <video
+                                    ref={videoRefs.current[idx]}
                                     className="testimonial-video-tablet"
-                                    playsInline
-                                    muted
-                                    loop
-                                    autoPlay={currentVideo === idx}
-                                    preload="auto"
-                                    style={{ 
-                                        display: Math.abs(currentVideo - idx) <= 1 ? 'block' : 'none',
-                                        opacity: currentVideo === idx ? 1 : 0 
-                                    }}
+                                    {...videoProps}
                                 >
                                     <source src={feature.video} type="video/mp4" />
                                 </video>
@@ -197,7 +301,7 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
         </div>
     );
 
-    // Mobile Version
+    // Mobile Version with same video loading optimization
     const MobileTestimonials = () => (
         <div className="testimonials-wrapper-mobile">
             <motion.div className="testimonials-viewport-container-mobile">
@@ -218,16 +322,9 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                         >
                             <div className="testimonial-video-wrapper-mobile">
                                 <video
+                                    ref={videoRefs.current[idx]}
                                     className="testimonial-video-mobile"
-                                    playsInline
-                                    muted
-                                    loop
-                                    autoPlay={currentVideo === idx}
-                                    preload="auto"
-                                    style={{ 
-                                        display: Math.abs(currentVideo - idx) <= 1 ? 'block' : 'none',
-                                        opacity: currentVideo === idx ? 1 : 0 
-                                    }}
+                                    {...videoProps}
                                 >
                                     <source src={feature.video} type="video/mp4" />
                                 </video>
