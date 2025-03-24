@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Popup.css';
-// import DynamicsForm from './DynamicsForm';
+import DynamicsForm from './DynamicsForm';
 interface PopupProps {
     isOpen: boolean;
     onClose: () => void;
@@ -116,7 +116,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                                 Submit
                             </button>
                         </form>
-                        {/* <DynamicsForm /> */}
+                        <DynamicsForm />
                         
                     </motion.div>
                 </>
