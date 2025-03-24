@@ -76,19 +76,46 @@ const CardStack = () => {
             video.muted = true;
             video.playsInline = true;
             video.setAttribute('playsinline', '');
-            video.load();
+            video.setAttribute('webkit-playsinline', '');
+            
+            // Add error handling for loading
+            video.addEventListener('error', (e) => {
+                console.error(`Error loading video ${index + 1}:`, e);
+            });
+
+            // Add loading event listeners
+            video.addEventListener('loadeddata', () => {
+                console.log(`Video ${index + 1} loaded successfully`);
+            });
+
+            const playVideo = async () => {
+                try {
+                    if (video.paused) {
+                        // For mobile, reload the video before playing
+                        if ((isTablet || isMobile) && !video.readyState) {
+                            await video.load();
+                        }
+                        await video.play();
+                        console.log(`Video ${index + 1} playing`);
+                    }
+                } catch (error) {
+                    console.error(`Error playing video ${index + 1}:`, error);
+                }
+            };
+
+            const pauseVideo = () => {
+                if (!video.paused) {
+                    video.pause();
+                }
+            };
 
             const observer = new IntersectionObserver(
                 (entries) => {
                     const [entry] = entries;
                     if (entry.isIntersecting) {
-                        // console.log(`Video ${index + 1} entered viewport`);
-                        video.play().catch(error => {
-                            console.error('Error playing video:', error);
-                        });
+                        playVideo();
                     } else {
-                        // console.log(`Video ${index + 1} left viewport`);
-                video.pause();
+                        pauseVideo();
                     }
                 },
                 {
@@ -100,15 +127,9 @@ const CardStack = () => {
             observer.observe(video);
             videoObservers.current.push(observer);
 
-            // Initial check if video is already in viewport
-            const rect = video.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const threshold = isLaptop ? 0.6 : isTablet ? 0.5 : 0.4;
-            
-            if (rect.top < windowHeight * (1 - threshold)) {
-                video.play().catch(error => {
-                    console.error('Error playing video:', error);
-                });
+            // Initial playback check
+            if (video.getBoundingClientRect().top < window.innerHeight * (isLaptop ? 0.6 : isTablet ? 0.5 : 0.4)) {
+                playVideo();
             }
         });
 
@@ -118,6 +139,8 @@ const CardStack = () => {
                 const video = videoRef.current;
                 if (video) {
                     video.pause();
+                    video.removeAttribute('src'); // Clear source to free memory
+                    video.load(); // Reset video state
                 }
             });
         };
@@ -143,6 +166,25 @@ const CardStack = () => {
     const secondCardOpacity = useTransform(scrollYProgress, [0, 0.15, 0.75, 0.76], [1, 1, 1, 0]);
     const thirdCardOpacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
     const opacityTransforms = [firstCardOpacity, secondCardOpacity, thirdCardOpacity];
+
+    // Update video attributes in all versions
+    const videoAttributes = {
+        loop: true,
+        muted: true,
+        playsInline: true,
+        preload: "auto" as const,
+        className: "card-video"
+    };
+
+    const tabletVideoAttributes = {
+        ...videoAttributes,
+        className: "card-video card-video-tablet"
+    };
+
+    const mobileVideoAttributes = {
+        ...videoAttributes,
+        className: "card-video card-video-mobile"
+    };
 
     // Laptop Version (Original - Unchanged)
     const LaptopCardStack = () => (
@@ -170,11 +212,7 @@ const CardStack = () => {
                             <div className="stack-card-media">
                                 <video 
                             ref={laptopVideoRefs[index]}
-                                    className="card-video"
-                                    loop
-                                    muted
-                                    playsInline
-                            preload="auto"
+                                    {...videoAttributes}
                                     src={card.video}
                                 />
                             </div>
@@ -216,11 +254,7 @@ const CardStack = () => {
                     <div className="stack-card-media stack-card-media-tablet">
                         <video 
                             ref={tabletVideoRefs[index]}
-                            className="card-video card-video-tablet"
-                            loop
-                            muted
-                            playsInline
-                            preload="auto"
+                            {...tabletVideoAttributes}
                             src={card.video}
                         />
                     </div>
@@ -262,11 +296,7 @@ const CardStack = () => {
                     <div className="stack-card-media stack-card-media-mobile">
                         <video 
                             ref={mobileVideoRefs[index]}
-                            className="card-video card-video-mobile"
-                            loop
-                            muted
-                            playsInline
-                            preload="auto"
+                            {...mobileVideoAttributes}
                             src={card.video}
                         />
                     </div>

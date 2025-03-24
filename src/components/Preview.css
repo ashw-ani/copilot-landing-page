@@ -78,49 +78,36 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100; /* Increase this significantly */
     display: flex;
-    gap: 10px;
-    align-items: center;
-    pointer-events: all; /* Add this */
+    gap: 12px;
+    z-index: 10;
 }
 
-.play-pause-btn {
-    background: rgba(35, 35, 35, 0.2);
+.play-pause-btn,
+.mute-btn {
+    background: rgba(0, 0, 0, 0.6);
     border: none;
+    border-radius: 50%;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-    position: relative; /* Add this */
-    z-index: 101; /* Add this */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.play-pause-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
+.play-pause-btn:hover,
+.mute-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-.play-pause-btn svg {
+.play-pause-btn svg,
+.mute-btn svg {
     width: 24px;
     height: 24px;
     fill: white;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* Tablet Styles */
 .preview-content-tablet {
@@ -154,15 +141,18 @@
 }
 
 .video-controls-tablet {
-    bottom: 15px;
+    bottom: 16px;
+    gap: 10px;
 }
 
-.play-pause-btn-tablet {
+.play-pause-btn-tablet,
+.mute-btn-tablet {
     width: 42px;
     height: 42px;
 }
 
-.play-pause-btn-tablet svg {
+.play-pause-btn-tablet svg,
+.mute-btn-tablet svg {
     width: 20px;
     height: 20px;
 }
@@ -213,14 +203,17 @@
 
 .video-controls-mobile {
     bottom: 12px;
+    gap: 8px;
 }
 
-.play-pause-btn-mobile {
+.play-pause-btn-mobile,
+.mute-btn-mobile {
     width: 36px;
     height: 36px;
 }
 
-.play-pause-btn-mobile svg {
+.play-pause-btn-mobile svg,
+.mute-btn-mobile svg {
     width: 18px;
     height: 18px;
 }

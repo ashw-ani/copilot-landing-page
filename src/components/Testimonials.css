@@ -346,8 +346,8 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding: 0 1rem;
-    top: 15%;
+    padding: .5rem 1rem;
+    top: 17%;
 }
 
 .testimonial-video-wrapper-mobile {

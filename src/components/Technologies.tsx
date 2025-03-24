@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import './Technologies.css';
@@ -7,6 +7,10 @@ const Technologies = () => {
     const targetRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const videoContainerRef = useRef<HTMLDivElement>(null);
+    const videoLoadedRef = useRef(false);
+    const [isVideoLoading, setIsVideoLoading] = useState(true);
+    const [hasVideoError, setHasVideoError] = useState(false);
+
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start start", "end start"]
@@ -41,23 +45,75 @@ const Technologies = () => {
         const videoContainer = videoContainerRef.current;
         if (!video || !videoContainer) return;
 
+        // Configure video
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+
         const handleEnded = () => {
             video.currentTime = video.duration;
         };
 
+        const handleError = (e: Event) => {
+            console.error("Error with video:", e);
+            setHasVideoError(true);
+            setIsVideoLoading(false);
+            // Attempt to reload the video
+            if (!videoLoadedRef.current) {
+                setTimeout(() => {
+                    video.load();
+                    setHasVideoError(false);
+                    setIsVideoLoading(true);
+                }, 2000); // Retry after 2 seconds
+            }
+        };
+
+        const handleLoadedData = () => {
+            console.log("Video loaded successfully");
+            videoLoadedRef.current = true;
+            setIsVideoLoading(false);
+            setHasVideoError(false);
+        };
+
+        const handleLoadStart = () => {
+            setIsVideoLoading(true);
+        };
+
+        const playVideo = async () => {
+            try {
+                if (video.paused) {
+                    // If video hasn't loaded properly, reload it
+                    if (!video.readyState) {
+                        await video.load();
+                    }
+                    await video.play();
+                    console.log("Video playing");
+                }
+            } catch (error) {
+                console.error("Error playing video:", error);
+                setHasVideoError(true);
+            }
+        };
+
+        const pauseVideo = () => {
+            if (!video.paused) {
+                video.pause();
+            }
+        };
+
         video.addEventListener('ended', handleEnded);
+        video.addEventListener('error', handleError);
+        video.addEventListener('loadeddata', handleLoadedData);
+        video.addEventListener('loadstart', handleLoadStart);
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-                        if (video.currentTime < video.duration) {
-                            video.play().catch(error => {
-                                console.error("Error playing video:", error);
-                            });
-                        }
+                        playVideo();
                     } else {
-                        video.pause();
+                        pauseVideo();
                     }
                 });
             },
@@ -70,13 +126,24 @@ const Technologies = () => {
 
         observer.observe(videoContainer);
 
+        // Initial playback check
+        if (videoContainer.getBoundingClientRect().top < window.innerHeight * 0.6) {
+            playVideo();
+        }
+
         return () => {
             video.removeEventListener('ended', handleEnded);
+            video.removeEventListener('error', handleError);
+            video.removeEventListener('loadeddata', handleLoadedData);
+            video.removeEventListener('loadstart', handleLoadStart);
             observer.disconnect();
+            video.pause();
+            video.removeAttribute('src');
+            video.load();
         };
     }, []);
 
-    // Laptop Version (Unchanged)
+    // Laptop Version
     const LaptopTechnologies = () => (
         <motion.div 
             className="technologies-container"
@@ -84,11 +151,31 @@ const Technologies = () => {
         >
             <div className='technologies-heading'>Copilot Technology</div>
             <div className="video-container" ref={videoContainerRef}>
+                {isVideoLoading && !hasVideoError && (
+                    <motion.img 
+                        className="background-image"
+                        src="/Main.png"
+                        alt="Loading placeholder"
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 0.7 }}
+                        transition={{ duration: 0.5 }}
+                    />
+                )}
+                {hasVideoError && (
+                    <motion.img 
+                        className="background-image"
+                        src="/Main.png"
+                        alt="Video fallback"
+                    />
+                )}
                 <video 
                     ref={videoRef}
                     className="background-video"
                     muted
                     playsInline
+                    preload="metadata"
+                    poster="/Main.png"
+                    style={{ opacity: isVideoLoading || hasVideoError ? 0 : 1 }}
                 >
                     <source src="/laptopdark.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
