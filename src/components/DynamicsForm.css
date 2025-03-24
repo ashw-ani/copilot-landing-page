@@ -1,6 +1,7 @@
 .dynamics-form-wrapper {
     width: 100%;
     margin: 0 auto;
+    zoom: 0.67;
 }
 
 /* Target the form itself */

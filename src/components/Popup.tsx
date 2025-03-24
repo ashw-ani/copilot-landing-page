@@ -87,7 +87,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                                 </svg>
                             </button>
                         </div>
-                        <form onSubmit={handleSubmit} className="popup-form">
+                        {/* <form onSubmit={handleSubmit} className="popup-form">
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
                                 <input
@@ -115,7 +115,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                             <button type="submit" className="submit-button">
                                 Submit
                             </button>
-                        </form>
+                        </form> */}
                         <DynamicsForm />
                         
                     </motion.div>
