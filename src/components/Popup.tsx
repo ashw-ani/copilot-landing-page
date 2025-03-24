@@ -62,7 +62,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                         // exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         // transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     > 
-                        <motion.div 
+                        {/* <motion.div 
                             className="popup-floating-icon"
                             // initial={{ opacity: 0, y: 20 }}
                             animate={{ 
@@ -72,7 +72,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                                 // scale: [1, 1.1, 1],
                             }}
                             
-                        >
+                        > */}
                             <img src="/frame1.svg" alt="Copilot Logo" />
                         </motion.div>
                         <div className="popup-header">
