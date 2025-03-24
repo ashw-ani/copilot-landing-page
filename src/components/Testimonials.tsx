@@ -166,18 +166,20 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                             }}
                         >
                             <div className="testimonial-video-wrapper-tablet">
-                                {currentVideo === idx && (
-                                    <video
-                                        className="testimonial-video-tablet"
-                                        playsInline
-                                        muted
-                                        loop
-                                        autoPlay
-                                        preload="metadata"
-                                    >
-                                        <source src={feature.video} type="video/mp4" />
-                                    </video>
-                                )}
+                                <video
+                                    className="testimonial-video-tablet"
+                                    playsInline
+                                    muted
+                                    loop
+                                    autoPlay={currentVideo === idx}
+                                    preload="auto"
+                                    style={{ 
+                                        display: Math.abs(currentVideo - idx) <= 1 ? 'block' : 'none',
+                                        opacity: currentVideo === idx ? 1 : 0 
+                                    }}
+                                >
+                                    <source src={feature.video} type="video/mp4" />
+                                </video>
                             </div>
                             <div className="testimonial-content-block-tablet">
                                 <motion.img 
@@ -215,18 +217,20 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                             }}
                         >
                             <div className="testimonial-video-wrapper-mobile">
-                                {currentVideo === idx && (
-                                    <video
-                                        className="testimonial-video-mobile"
-                                        playsInline
-                                        muted
-                                        loop
-                                        autoPlay
-                                        preload="metadata"
-                                    >
-                                        <source src={feature.video} type="video/mp4" />
-                                    </video>
-                                )}
+                                <video
+                                    className="testimonial-video-mobile"
+                                    playsInline
+                                    muted
+                                    loop
+                                    autoPlay={currentVideo === idx}
+                                    preload="auto"
+                                    style={{ 
+                                        display: Math.abs(currentVideo - idx) <= 1 ? 'block' : 'none',
+                                        opacity: currentVideo === idx ? 1 : 0 
+                                    }}
+                                >
+                                    <source src={feature.video} type="video/mp4" />
+                                </video>
                             </div>
                             <div className="testimonial-content-block-mobile">
                                 <motion.img 
