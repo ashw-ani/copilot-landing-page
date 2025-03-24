@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Popup.css';
 import DynamicsForm from './DynamicsForm';
@@ -9,40 +9,40 @@ interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
-    const [email, setEmail] = useState('');
-    const [companyName, setCompanyName] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [companyError, setCompanyError] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [companyName, setCompanyName] = useState('');
+    // const [emailError, setEmailError] = useState('');
+    // const [companyError, setCompanyError] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    // const handleSubmit = (e: React.FormEvent) => {
+    //     e.preventDefault();
         
-        // Reset errors
-        setEmailError('');
-        setCompanyError('');
+    //     // Reset errors
+    //     setEmailError('');
+    //     setCompanyError('');
 
-        // Validate
-        let isValid = true;
-        if (!email) {
-            setEmailError('Email is required');
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(email)) {
-            setEmailError('Please enter a valid email');
-            isValid = false;
-        }
+    //     // Validate
+    //     let isValid = true;
+    //     if (!email) {
+    //         setEmailError('Email is required');
+    //         isValid = false;
+    //     } else if (!/\S+@\S+\.\S+/.test(email)) {
+    //         setEmailError('Please enter a valid email');
+    //         isValid = false;
+    //     }
 
-        if (!companyName) {
-            setCompanyError('Company name is required');
-            isValid = false;
-        }
+    //     if (!companyName) {
+    //         setCompanyError('Company name is required');
+    //         isValid = false;
+    //     }
 
-        if (isValid) {
-            onSubmit(email, companyName);
-            setEmail('');
-            setCompanyName('');
-            onClose();
-        }
-    };
+    //     if (isValid) {
+    //         onSubmit(email, companyName);
+    //         setEmail('');
+    //         setCompanyName('');
+    //         onClose();
+    //     }
+    // };
 
     return (
         <AnimatePresence>
