@@ -72,9 +72,9 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onSubmit }) => {
                                 // scale: [1, 1.1, 1],
                             }}
                             
-                        > */}
+                        >
                             <img src="/frame1.svg" alt="Copilot Logo" />
-                        </motion.div>
+                        </motion.div> */}
                         <div className="popup-header">
                             <h2>Get Started</h2>
                             <button 
