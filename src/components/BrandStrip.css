@@ -2,7 +2,7 @@
 .brand-strip {
     width: 100%;
     background-color: #ffffff;
-    padding: 2rem 0;
+    padding: 5rem 0;
     /* border-top: 1px solid #eaeaea; */
     border-bottom: 1px solid #eaeaea;
 }
@@ -12,7 +12,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     color: #000000;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem;
     letter-spacing: -0.02em;
 }
 
@@ -43,7 +43,7 @@
 .brand-strip-tablet {
     width: 100vw;
     background-color: #ffffff;
-    padding: 1.5rem 0;
+    padding: 3rem 0;
 
 }
 
@@ -52,7 +52,7 @@
     font-size: 2rem;
     font-weight: 700;
     color: #000000;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     letter-spacing: -0.02em;
     padding: 0 1rem;
 }
@@ -87,7 +87,7 @@
 .brand-strip-mobile {
     width: 100vw;
     background-color: #ffffff;
-    padding: 1rem 0;
+    padding: 2.5rem 0;
 
 }
 
@@ -96,7 +96,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: #000000;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     letter-spacing: -0.02em;
     padding: 0 1rem;
 }

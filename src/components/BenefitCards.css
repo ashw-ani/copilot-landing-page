@@ -1,7 +1,7 @@
 .benefits-section {
     position: relative;
     height: 250vh; /* Reduced from 400vh to 200vh for faster scrolling */
-    background-color:#fff;
+    background-color:#000000;
     width: 100%;
 }
 
@@ -44,7 +44,7 @@
 
 .benefits-title h2 {
     font-size: 3rem;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
@@ -126,10 +126,10 @@
     width: 17rem;
     height: 17rem;
     padding: 2rem;
-    background: rgba(20, 20, 20, 0.1);
+    background: rgba(233, 233, 233, 0.1);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(239, 239, 239, 0.1);
     transform-origin: center center;
     opacity: 0;
     transition: all 0.3s ease-out; /* Reduced from 0.6s to 0.3s */
@@ -192,7 +192,7 @@
 .benefit-icon {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #000000;
+    color: #b3a3ce;
 }
 
 .benefit-icon svg {
@@ -204,18 +204,18 @@
 .benefit-icon img {
     width: 48px;
     height: 48px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-card h3 {
     font-size: 1.5rem;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
 .benefit-card p {
     font-size: 1rem;
-    color: #000000;
+    color: #dcdcdc;
     line-height: 1.4;
 }
 
@@ -264,7 +264,7 @@
 
 .benefits-title-tablet h2 {
     font-size: 3rem;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
@@ -288,7 +288,7 @@
     width: 100%;
     height: 16rem;
     padding: 1.75rem;
-    background: rgba(20, 20, 20, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -311,31 +311,31 @@
 .benefit-icon-tablet {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-icon-tablet svg {
     width: 40px;
     height: 40px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-icon-tablet img {
     width: 40px;
     height: 40px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-card-tablet h3 {
     font-size: 1.375rem;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
 .benefit-card-tablet p {
     font-size: 0.9375rem;
-    color: #000000;
+    color: #cccccc;
     line-height: 1.4;
     text-align: center;
 }
@@ -361,7 +361,7 @@
 
 .benefits-title-mobile h2 {
     font-size: 1.875rem;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 1rem;
     padding: 3rem 1rem 0 1rem;
     text-align: center;
@@ -388,7 +388,7 @@
     height: auto;
     min-height: 7rem;
     padding: 1.5rem;
-    background: rgba(20, 20, 20, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 14px;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -411,31 +411,31 @@
 .benefit-icon-mobile {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-icon-mobile svg {
     width: 36px;
     height: 36px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-icon-mobile img {
     width: 36px;
     height: 36px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .benefit-card-mobile h3 {
     font-size: 1.25rem;
-    color: #000000;
+    color: #ffffff;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
 .benefit-card-mobile p {
     font-size: 0.875rem;
-    color: #000000;
+    color: #efefef;
     line-height: 1.4;
     text-align: center;
 }
