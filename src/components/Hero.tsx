@@ -153,7 +153,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
                         />
-                        <motion.img
+                        {/* <motion.img
                             src="/4.png"
                             alt="Feature 1"
                             className="hero-floating-image hero-floating-image-1"
@@ -176,7 +176,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
-                    />
+                    /> */}
                 </motion.div>
             </motion.section>
         </motion.div>
