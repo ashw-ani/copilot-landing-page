@@ -63,37 +63,37 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
     useEffect(() => {
         if (!testimonials || !testimonials[0]?.features) return;
 
-        // Create refs and preload elements
+        // Create refs for all videos
         videoRefs.current = testimonials[0].features.map(() => React.createRef<HTMLVideoElement>());
         setVideosLoaded(new Array(testimonials[0].features.length).fill(false));
 
-        // Immediately start preloading all videos
+        // Create and configure video elements for each feature
         testimonials[0].features.forEach((feature: Feature, index: number) => {
-            // Create a hidden video element for preloading
-            const preloadVideo = document.createElement('video');
-            preloadVideo.style.display = 'none';
-            preloadVideo.preload = 'auto';
+            const video = document.createElement('video');
+            video.style.display = 'none';
+            video.preload = 'auto';
+            video.muted = true;
+            video.playsInline = true;
             
             // Create source element
             const source = document.createElement('source');
             source.src = feature.video;
             source.type = 'video/mp4';
             
-            // Add source to video
-            preloadVideo.appendChild(source);
+            video.appendChild(source);
             
-            // Start loading
-            preloadVideo.load();
+            // Start loading immediately
+            video.load();
             
-            // Listen for when it's loaded
-            preloadVideo.addEventListener('loadeddata', () => {
+            // Track when each video is loaded
+            video.addEventListener('loadeddata', () => {
                 setVideosLoaded(prev => {
                     const newState = [...prev];
                     newState[index] = true;
                     return newState;
                 });
 
-                // Once loaded, update the actual video element
+                // Update the actual video element
                 if (videoRefs.current[index].current) {
                     const actualVideo = videoRefs.current[index].current!;
                     actualVideo.src = feature.video;
@@ -101,16 +101,15 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                 }
             });
 
-            // Append to document temporarily
-            document.body.appendChild(preloadVideo);
+            // Append to document
+            document.body.appendChild(video);
             
             // Remove after starting the load
             setTimeout(() => {
-                document.body.removeChild(preloadVideo);
-            }, 0);
+                document.body.removeChild(video);
+            }, 100); // Give more time for loading to start
         });
 
-        // Cleanup function
         return () => {
             videoRefs.current.forEach(ref => {
                 if (ref.current) {
@@ -121,33 +120,21 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
         };
     }, [testimonials]);
 
-    // Configure video elements when they're mounted
-    useEffect(() => {
-        if (!testimonials || !testimonials[0]?.features) return;
-
-        videoRefs.current.forEach((videoRef, index) => {
-            if (videoRef.current) {
-                const video = videoRef.current;
-                video.muted = true;
-                video.playsInline = true;
-                video.loop = true;
-                video.preload = 'auto';
-                
-                // Set initial source if not already set
-                if (!video.src && testimonials[0].features[index]) {
-                    video.src = testimonials[0].features[index].video;
-                }
-            }
-        });
-    }, [testimonials]);
-
-    // Update video playback based on current video
+    // Update video playback based on current video with improved loading check
     useEffect(() => {
         videoRefs.current.forEach((videoRef, index) => {
             if (videoRef.current) {
                 if (index === currentVideo) {
-                    if (videosLoaded[index]) {
+                    // Ensure video is loaded before attempting to play
+                    if (videosLoaded[index] && videoRef.current.readyState >= 3) {
                         videoRef.current.play().catch(console.error);
+                    } else {
+                        // If not loaded, set up a one-time listener
+                        const handleCanPlay = () => {
+                            videoRef.current?.play().catch(console.error);
+                            videoRef.current?.removeEventListener('canplay', handleCanPlay);
+                        };
+                        videoRef.current.addEventListener('canplay', handleCanPlay);
                     }
                 } else {
                     videoRef.current.pause();
