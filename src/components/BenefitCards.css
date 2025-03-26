@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 7rem 2rem 2rem;
+    padding: 5rem 2rem 2rem;
     transition: all 0.3s ease-out; /* Reduced from 0.5s to 0.3s */
 }
 
@@ -40,12 +40,14 @@
 .benefits-title {
     text-align: center;
     margin-bottom: 0rem;
+    font-weight: 700;
 }
 
 .benefits-title h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #ffffff;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .benefits-title p {
@@ -61,7 +63,11 @@
 @media (min-resolution: 144dpi) {
     .benefits-title h2 {
       zoom: 0.67; 
-      margin-top: -2.5rem;
+      margin-top: 3rem;
+      margin-bottom: 0rem;
+    }
+    .benefits-container {
+        padding: 3rem 2rem 2rem;
     }
   }
 

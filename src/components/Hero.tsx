@@ -113,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.6 }}
                         >
-                            Unlock smarter decisions, seamless program management, and real-time insights — all in one AI-driven platform.
+                            Unlock smarter decisions, seamless program management, and real-time insights — all in one AI-driven travel management platform.
                         </motion.p>
                         <motion.div 
                             className="hero-actions"
@@ -275,7 +275,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.6 }}
                     >
-                        Unlock smarter decisions, seamless program management, and real-time insights — all in one AI-driven platform.
+                        Unlock smarter decisions, seamless program management, and real-time insights — all in one AI-driven travel management travel management platform.
                     </motion.p>
                     <motion.div 
                         className="hero-actions hero-actions-tablet"

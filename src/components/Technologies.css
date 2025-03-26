@@ -23,7 +23,7 @@
     height: 100vh;
     width: 100%;
     position: sticky;
-    top: 0;
+    top: 2rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -32,9 +32,9 @@
     /* margin-top: 100vh; */
 }
 .technologies-heading {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 4rem;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 5rem;
     color: #000000;
     animation:fadeIn 1s ease-in-out;
     /* letter-spacing: 0.1em; */
@@ -42,7 +42,7 @@
 @media (min-resolution: 120dpi) {
     .technologies-heading {
         font-size: 3rem;
-        font-weight: 900;
+        font-weight: 700;
         margin-bottom: 3rem;
         color: #000000;
         animation:fadeIn 1s ease-in-out;    }
@@ -50,8 +50,8 @@
 @media (min-resolution: 144dpi) {
     .technologies-heading {
         font-size: 3rem;
-        font-weight: 900;
-        margin-bottom: 3rem;
+        font-weight: 700;
+        margin-bottom: 2.5rem;
         color: #000000;
         animation:fadeIn 1s ease-in-out;    }
   }
@@ -230,7 +230,7 @@
 
 .technologies-heading-tablet {
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 700;
     margin-bottom: 2rem;
     color: #000000;
     text-align: center;
@@ -317,7 +317,7 @@
 
 .technologies-heading-mobile {
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 700;
     margin-bottom: 2rem;
     color: #000000;
     animation: fadeIn 1s ease-in-out;

@@ -218,7 +218,7 @@ const Testimonials = (props: { data: any[], isReversed: boolean }) => {
                                     muted
                                     loop
                                     autoPlay
-                                    initial={{ opacity: 0 }}
+                                    initial={{ opacity: 0.7 }}
                                     animate={{ opacity: currentVideo === idx ? 1 : 0 }}
                                     transition={{ duration: 0.5 }}
                                 >
