@@ -36,8 +36,8 @@ const Technologies = () => {
         [0, 1, 1, 0]
     );
 
-    const isLaptop = useMediaQuery({ minWidth: 1024 });
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+    const isLaptop = useMediaQuery({ minWidth: 1361 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1360 });
     const isMobile = useMediaQuery({ maxWidth: 767 });
 
     useEffect(() => {
