@@ -10,7 +10,7 @@
 .brand-strip-heading {
     text-align: center;
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 900;
     color: #000000;
     margin-bottom: 5rem;
     letter-spacing: normal;
@@ -52,7 +52,7 @@
 .brand-strip-heading-tablet {
     text-align: center;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 900;
     color: #000000;
     margin-bottom: 3rem;
     letter-spacing: -0.02em;
@@ -96,7 +96,7 @@
 .brand-strip-heading-mobile {
     text-align: center;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 900;
     color: #000000;
     margin-bottom: 2.5rem;
     letter-spacing: -0.02em;
@@ -161,7 +161,7 @@
 
     .brand-strip-heading {
         font-size: 3rem;
-        font-weight: 700;
+        font-weight: 900;
     }
 
     .brand-strip-heading-tablet {

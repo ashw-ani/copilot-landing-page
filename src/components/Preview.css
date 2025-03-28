@@ -19,7 +19,7 @@
 
 .preview-header h2 {
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 900;
     color: #e6e6e6;
     margin-bottom: 1rem;
 }
@@ -27,7 +27,7 @@
 @media (min-resolution: 144dpi) {
     .preview-header h2 {
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 900;
         color: #e6e6e6;
         margin-bottom: 0rem;
     }
@@ -122,7 +122,7 @@
 
 .preview-header-tablet h2 {
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom:1rem;
 }
 
@@ -187,7 +187,7 @@
 
 .preview-header-mobile h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 0.75rem;
     text-align: center;
 }
@@ -225,12 +225,12 @@
     /* Keep this one for high DPI displays */
     .preview-header h2 {
         font-size: 2.5rem;
-        font-weight: 700;
+        font-weight: 900;
         margin-bottom: 0rem;
     }
     .preview-header-mobile h2{
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 900;
         margin-bottom: 0rem;
     }
     .preview-content {
