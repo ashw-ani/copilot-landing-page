@@ -230,7 +230,7 @@ const CardStack = () => {
     // Tablet Version
     const TabletCardStack = () => (
         <div className="card-stack card-stack-tablet" ref={containerRef}>
-            <p className='stack-heading-tablet'>Copilot - friction-free travel management</p>
+            <p className='stack-heading-tablet'>Copilot - friction-free management</p>
             {cards.map((card, index) => (
                 <motion.div
                     key={card.title}
@@ -272,7 +272,7 @@ const CardStack = () => {
     // Mobile Version
     const MobileCardStack = () => (
         <div className="card-stack card-stack-mobile" ref={containerRef}>
-            <p className='stack-heading-mobile'>Copilot - friction-free travel management</p>
+            <p className='stack-heading-mobile'>Copilot - friction-free management</p>
             {cards.map((card, index) => (
                 <motion.div
                     key={card.title}
@@ -313,7 +313,7 @@ const CardStack = () => {
 
     return (
         <div className="card-stack-container" ref={scrollContainerRef} style={{ height: "400vh" }}>
-            {isLaptop && <p className='stack-heading'>Copilot - friction-free travel management</p>}
+            {isLaptop && <p className='stack-heading'>Copilot - friction-free management</p>}
             
            
             <div className="card-stack-sticky" style={{ position: "sticky", top: 0, height: "100vh" }}>

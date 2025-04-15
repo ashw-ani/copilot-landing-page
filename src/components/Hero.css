@@ -103,7 +103,7 @@
 
 .hero-heading1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
+  font-weight: 700;
   color: black;
   margin-bottom: clamp(0.875rem, 1.5vh, 1.25rem);
   line-height: 1.2;
@@ -196,10 +196,41 @@
   }
 }
 
-
-
-
-
+/* Media query for 16:10 aspect ratio screens */
+@media screen and (aspect-ratio: 16/10), 
+       screen and (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
+    .hero-heading1 {
+        font-size: clamp(2.25rem, 5vw, 3.5rem);
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-heading2 {
+        font-size: clamp(0.9rem, 1.8vw, 1.8rem);
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-heading1-tablet {
+        font-size: clamp(3.5rem, 6vw, 4.5rem);
+        line-height: 1.1;
+    }
+    
+    .hero-heading2-tablet {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+    
+    .hero-heading1-mobile {
+        font-size: clamp(2.5rem, 7vw, 3rem);
+        line-height: 1.1;
+    }
+    
+    .hero-heading2-mobile {
+        font-size: 1.5rem;
+        line-height: 1.1;
+    }
+}
 
 /* Tablet Styles */
 .hero-container-tablet {

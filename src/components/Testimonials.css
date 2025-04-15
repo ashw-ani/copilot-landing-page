@@ -434,3 +434,45 @@ video {
     transform: translateZ(0);
     backface-visibility: hidden;
 }
+
+/* Media query for 16:10 aspect ratio screens */
+@media screen and (aspect-ratio: 16/10), 
+       screen and (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
+    .testimonials-container-heading {
+        font-size: 2.75rem;
+        line-height: 1.1;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .testimonial-text h2 {
+        font-size: 2.25rem;
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+    }
+    
+    .testimonial-feature-item h3 {
+        font-size: 1.2rem;
+        line-height: 1.1;
+    }
+    
+    .testimonials-container-heading-tablet {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+    
+    .testimonial-content-block-tablet h3 {
+        font-size: 1.3rem;
+        line-height: 1.1;
+    }
+    
+    .testimonials-container-heading-mobile {
+        font-size: 2.25rem;
+        line-height: 1.1;
+    }
+    
+    .testimonial-content-block-mobile h3 {
+        font-size: 1.1rem;
+        line-height: 1.1;
+    }
+}

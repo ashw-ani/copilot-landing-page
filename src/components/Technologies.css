@@ -510,3 +510,37 @@
     left: 0;
 }
 
+/* Media query for 16:10 aspect ratio screens */
+@media screen and (aspect-ratio: 16/10), 
+       screen and (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
+    .technologies-heading {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 4rem;
+    }
+    
+    .content-overlay h2 {
+        font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+    }
+    
+    .tech-card h3 {
+        font-size: 1.1rem;
+        line-height: 1.1;
+        margin-bottom: 0.4rem;
+    }
+    
+    .technologies-heading-tablet {
+        font-size: 2.25rem;
+        line-height: 1.1;
+        margin-bottom: 1.75rem;
+    }
+    
+    .technologies-heading-mobile {
+        font-size: 1.75rem;
+        line-height: 1.1;
+        margin-bottom: 1.75rem;
+    }
+}
+

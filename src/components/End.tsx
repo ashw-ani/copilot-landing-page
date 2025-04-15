@@ -75,7 +75,7 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                 </div>
             </div>
             <div className="footer-links">
-                <p className="trust-text">HRS. Trusted by over 500 global enterprises</p>
+                <p className="trust-text">HRS. Trusted by Fortune 500 companies</p>
                 <div className="links">
                     <a href="https://www.hrs.com/enterprise/data-protection-security/">Data Protection & Security</a>
                     <a href="https://www.hrs.com/enterprise/cookie-policy/">Cookie Policy</a>
@@ -150,7 +150,7 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                 </div>
             
             <div className="footer-links-tablet">
-                <p className="trust-text-tablet">HRS. Trusted by over 500 global enterprises</p>
+                <p className="trust-text-tablet">HRS. Trusted by Fortune 500 companies</p>
                 <div className="links-tablet">
                 <a href="https://www.hrs.com/enterprise/data-protection-security/">Data Protection & Security</a>
                     <a href="https://www.hrs.com/enterprise/cookie-policy/">Cookie Policy</a>
@@ -224,7 +224,7 @@ const End: React.FC<EndProps> = ({ onGetStarted }) => {
                 </div>
             </div>
             <div className="footer-links-mobile">
-                <p className="trust-text-mobile">HRS. Trusted by over 500 global enterprises</p>
+                <p className="trust-text-mobile">HRS. Trusted by Fortune 500 companies</p>
                 <div className="links-mobile">
                 <a href="https://www.hrs.com/enterprise/data-protection-security/">Data Protection & Security</a>
                     <a href="https://www.hrs.com/enterprise/cookie-policy/">Cookie Policy</a>

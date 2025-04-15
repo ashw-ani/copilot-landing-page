@@ -419,3 +419,30 @@
     }
 }
 
+/* Media query for 16:10 aspect ratio screens */
+@media screen and (aspect-ratio: 16/10), 
+       screen and (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
+    .end-content h2 {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+    
+    .end-content-text {
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-logo-end {
+        margin-bottom: 3.75rem;
+    }
+    
+    .end-content-tablet h2 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    
+    .end-content-mobile h2 {
+        font-size: 2.25rem;
+        line-height: 1.1;
+    }
+}
+

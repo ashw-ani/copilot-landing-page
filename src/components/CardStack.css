@@ -283,4 +283,37 @@
     }
 }
 
+/* Media query for 16:10 aspect ratio screens */
+@media screen and (aspect-ratio: 16/10), 
+       screen and (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
+    .stack-heading {
+        font-size: 3.5rem;
+        top: 4.7rem;
+        line-height: 1.1;
+    }
+    
+    .stack-card h2 {
+        font-size: clamp(1.125rem, 1.8vw, 1.8rem);
+        margin: 0 0 0.375rem 0;
+    }
+    
+    .stack-heading-tablet {
+        font-size: 1.8rem;
+        height: 8rem;
+    }
+    
+    .stack-card-tablet h2 {
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+    
+    .stack-heading-mobile {
+        font-size: 1.75rem;
+        height: 9rem;
+    }
+    
+    .stack-card-mobile h2 {
+        font-size: 1.1rem;
+    }
+}
+
 
