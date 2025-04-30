@@ -31,15 +31,15 @@
 
 .testimonials-container {
     width: 100%;
-    height: 100vh;
-    padding: 12rem 2rem;
+    /* height: 100vh; */
+    padding: 2rem 2rem;
     position: sticky;
-    top: 0;
+    top: 7rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
 }
 @media (min-resolution: 144dpi) {
     .testimonials-container {

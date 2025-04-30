@@ -7,7 +7,7 @@ import Hero from './components/Hero';
 import Testimonials from './components/Testimonials';
 import Preview from './components/Preview';
 
-// import CardStack from './components/CardStack';
+import CardStack from './components/CardStack';
 import BenefitCards from './components/BenefitCards';
 // import References from './components/References';
 // import Technologies from './components/Technologies';
@@ -15,7 +15,7 @@ import End from './components/End';
 import Popup from './components/Popup';
 import Technologies from './components/Technologies';
 import BrandStrip from './components/BrandStrip';
-import FullWidthVideo from './components/FullWidthVideo';
+// import FullWidthVideo from './components/FullWidthVideo';
 // import MultiWindows from './components/MultiWindows';
 // import DynamicsForm from './components/DynamicsForm';
 
@@ -124,7 +124,7 @@ const testimonialdata3 = [
 
 
 
-      <FullWidthVideo 
+      {/* <FullWidthVideo 
         videoSrc="/stack3newdark.mov"
         heading="No more manual processes"
         subheading="AI does the work, you make the decisions"
@@ -140,13 +140,13 @@ const testimonialdata3 = [
         videoSrc="/stack1newdark.mov"
         heading="No more wasted time and money"
         subheading="Smarter, faster, cost-optimized decisions in real time"
-      />
+      /> */}
 
 
 
 
 
-      {/* <CardStack/> */}
+      <CardStack/>
       
       <BenefitCards/>
       <BrandStrip/>

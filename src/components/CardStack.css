@@ -2,7 +2,7 @@
     width: 100%;
     height: 300vh; /* Creates space for scrolling */
     position: relative;
-    background-color: #fefefe;
+    background-color: #000000;
 }
 
 .card-stack-sticky {
@@ -21,12 +21,12 @@
     font-weight: 900;
     position: absolute;
     z-index: 1;
-    top: 4rem;
-    color: rgb(0, 0, 0);
+    top: 0rem;
+    color: rgb(255, 255, 255);
 
     width: 100%;
     line-height: 1.2;
-    background-color: #fefefe;    
+    background-color: #0c0c0c00;    
     text-align: center;
     padding: 0 1rem;
     letter-spacing: normal;
@@ -34,7 +34,7 @@
 @media (min-resolution: 144dpi) {
     .stack-heading{
         font-size: 3rem;
-        top: 1.5rem;
+        top: .5rem;
     }
 }
 
@@ -45,8 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: rgb(12, 12, 12); */
-    background-color: #fefefe;
+    background: linear-gradient(to bottom, #0c0c0c, #000);
     
     min-height: calc(100vh - 5rem);
     padding: 0 2rem;
@@ -67,21 +66,27 @@
 .stack-card {
     position: absolute;
      width: clamp(18.75rem, 60%, 25rem);
-    width: 50%;
+    width: 65%;
     background: #000000;
     border-radius: 1.25rem;
     overflow: hidden;
-    box-shadow: 0 2.5rem 5.625rem #fefefe98;
+    box-shadow: 0 2.5rem 5.625rem #4242424d;
     transition: transform 0.3s ease-out;
     border:none
 }
+@media (min-resolution: 144dpi) {
+    .stack-card {
+        width: 55%;
+
+    }
+  }
 
 .stack-card-media {
     width: 100%;
     height: 0;
     padding-top: 48%; /* Increased from 40%, original was 56.25% */
     position: relative;
-    background: #fefefe;
+    background: #01010100;
     overflow: hidden;
     border:none
 }
