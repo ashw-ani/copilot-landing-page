@@ -21,9 +21,8 @@
     font-weight: 900;
     position: absolute;
     z-index: 1;
-    top: 0rem;
+    top: -1rem;
     color: rgb(255, 255, 255);
-
     width: 100%;
     line-height: 1.2;
     background-color: #0c0c0c00;    
@@ -34,7 +33,6 @@
 @media (min-resolution: 144dpi) {
     .stack-heading{
         font-size: 3rem;
-        top: .5rem;
     }
 }
 
@@ -74,10 +72,9 @@
     transition: transform 0.3s ease-out;
     border:none
 }
-@media (min-resolution: 144dpi) {
+@media (min-resolution: 144dpi)  {
     .stack-card {
         width: 55%;
-
     }
   }
 
@@ -180,7 +177,7 @@
 .stack-card-tablet {
     width: 40rem;
     border-radius: 1rem;
-    box-shadow: 0 2rem 4rem #fefefe98;
+    box-shadow: 0 2.5rem 5.625rem #4242424d;
 }
 .stack-heading-tablet{
     height:9rem;
@@ -189,10 +186,10 @@
     z-index: 1;
     top: 3rem;
     font-weight: 900;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     width: 100%;
     z-index: 10;
-    background-color: #fefefe;
+    background-color: #fefefe00;
     justify-content: center;
     display: flex;
     align-items: flex-end;
@@ -236,10 +233,10 @@
     z-index: 1;
     top: 3.5rem;
     font-weight: 900;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     width: 100%;
     z-index: 10;
-    background-color: #fefefe;
+    background-color: #fefefe00;
     justify-content: center;
     display: flex;
     align-items: flex-end;
@@ -249,7 +246,7 @@
 .stack-card-mobile {
     width: clamp(14rem, 85%, 20rem);
     border-radius: 0.875rem;
-    box-shadow: 0 1.5rem 3rem #fefefe98;
+   box-shadow: 0 2.5rem 5.625rem #4242424d;
 }
 
 .stack-card-media-mobile {

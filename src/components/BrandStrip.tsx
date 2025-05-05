@@ -21,7 +21,7 @@ const BrandStrip: React.FC = () => {
                 >
                     <img src="/dhl.png" alt="Brand Logo" className="brand-logo" />
                     <img src="/allianz.png" alt="Brand Logo" className="brand-logo" />
-                    <img src="/deloitte.png" alt="Brand Logo" className="brand-logo" />
+                    {/* <img src="/deloitte.png" alt="Brand Logo" className="brand-logo" /> */}
                     <img src="/siemens.png" alt="Brand Logo" className="brand-logo" />
                     
                 </motion.div>
@@ -42,7 +42,7 @@ const BrandStrip: React.FC = () => {
                 >
                     <img src="/dhl.png" alt="Brand Logo" className="brand-logo-tablet" />
                     <img src="/allianz.png" alt="Brand Logo" className="brand-logo-tablet" />
-                    <img src="/deloitte.png" alt="Brand Logo" className="brand-logo-tablet" />
+                    {/* <img src="/deloitte.png" alt="Brand Logo" className="brand-logo-tablet" /> */}
                     <img src="/siemens.png" alt="Brand Logo" className="brand-logo-tablet" />
                 </motion.div>
             </div>
@@ -62,7 +62,7 @@ const BrandStrip: React.FC = () => {
                 >
                     <img src="/dhl.png" alt="Brand Logo" className="brand-logo-mobile" />
                     <img src="/allianz.png" alt="Brand Logo" className="brand-logo-mobile" />
-                    <img src="/deloitte.png" alt="Brand Logo" className="brand-logo-mobile" />
+                    {/* <img src="/deloitte.png" alt="Brand Logo" className="brand-logo-mobile" /> */}
                     <img src="/siemens.png" alt="Brand Logo" className="brand-logo-mobile" />
                 </motion.div>
             </div>

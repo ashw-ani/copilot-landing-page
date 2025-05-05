@@ -313,10 +313,11 @@ const CardStack = () => {
 
     return (
         <div className="card-stack-container" ref={scrollContainerRef} style={{ height: "400vh" }}>
-            {isLaptop && <p className='stack-heading'>Copilot - friction-free management</p>}
+    
             
            
             <div className="card-stack-sticky" style={{ position: "sticky", top: 0, height: "100vh" }}>
+            {isLaptop && <p className='stack-heading'>Copilot - friction-free management</p>}
                 {isLaptop && <LaptopCardStack />}
                 {isTablet && <TabletCardStack />}
                 {isMobile && <MobileCardStack />}

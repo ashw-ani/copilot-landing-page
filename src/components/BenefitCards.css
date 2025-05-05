@@ -25,14 +25,14 @@
 
 .benefits-container {
     position: sticky;
-    top: 0;
+    top: 9rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 5rem 2rem 2rem;
+    padding: 0rem 2rem 8rem 2rem;
     transition: all 0.3s ease-out; /* Reduced from 0.5s to 0.3s */
 }
 
@@ -46,8 +46,8 @@
 .benefits-title h2 {
     font-size: 4rem;
     color: #ffffff;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
 }
 
 .benefits-title p {
@@ -63,11 +63,12 @@
 @media (min-resolution: 144dpi) {
     .benefits-title h2 {
       zoom: 0.67; 
-      margin-top: 3rem;
+      margin-top: -3rem;
       margin-bottom: 0rem;
     }
     .benefits-container {
-        padding: 3rem 2rem 2rem;
+        padding: 0rem 2rem 7rem 2rem;
+        top: 7rem;
     }
   }
 
