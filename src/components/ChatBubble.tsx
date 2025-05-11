@@ -26,6 +26,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Connect to WebSocket when chat is opened
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isChatOpen && !socket) {
       connectWebSocket();
@@ -226,7 +227,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
           question: inputText,
           K_key: "Dummy Client",
           User_ID: "landingPageUser",
-          // authToken: "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcmFzaGFudC5zaGFybWFAaHJzLmNvbSIsImVtYWlsIjoicHJhc2hhbnQuc2hhcm1hQGhycy5jb20iLCJyb2xlIjoiU1VQRVJBRE1JTiIsImFjY291bnROYW1lIjoiU2llbWVucyBBRyIsIm5hbWUiOiJQcmFzaGFudCIsImxhc3ROYW1lIjoiU2hhcm1hIiwibXlIcnNJZCI6InBzaDUxIiwiaWF0IjoxNzQ2OTY2OTc1LCJleHAiOjE3NDY5NzA1NzV9.GGi2V0Xcch0ZlgOx9tSHOjiOnHuXT2tFEU6miPZGbfZ_VYzlRlQZ6CUSzwLtNhSx",
+          // authToken: "not need once dymy client flow implemented",
           session_id: generateSessionId()
         };
         
