@@ -185,7 +185,7 @@ const Technologies = () => {
                         className="tech-card"
                         style={{ opacity: cardOpacity1 }}
                     >
-                        <p><b>AI Model:</b> Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds 1.5 billion rate impressions, 100.000 corporate rates, 700.000 rate audits, 2-digit million payment and invoice insights</p>
+                        <p><b>AI Model:</b> Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds billions rate impressions, hundreds of corporate rates and rate audits, 2-digit million payment and invoice insights</p>
                     </motion.div>
                     <motion.div 
                         className="tech-card"
@@ -228,7 +228,7 @@ const Technologies = () => {
                         className="tech-card-tablet"
                         style={{ opacity: cardOpacity1 }}
                     >
-                        <p><b>AI Model</b> : Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds 1.5 billion rate impressions, 100.000 corporate rates, 700.000 rate audits, 2-digit million payment and invoice insights</p>
+                        <p><b>AI Model</b> : Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds billions of rate impressions, hundreds of corporate rates and rate audits, 2-digit million payment and invoice insights</p>
                     </motion.div>
                     <motion.div 
                         className="tech-card-tablet"
@@ -271,7 +271,7 @@ const Technologies = () => {
                         className="tech-card-mobile"
                         style={{ opacity: cardOpacity1 }}
                     >
-                        <p> <b>AI Model</b> : Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds 1.5 billion rate impressions, 100.000 corporate rates, 700.000 rate audits, 2-digit million payment and invoice insights</p>
+                        <p> <b>AI Model</b> : Copilot is built on a Specialized Language Model developed by HRS Labs. The model is trained with 20 years of corporate lodging and meetings procurement, booking and payment data across all industries in the global marketplace. Annually the Copilot model adds billions of rate impressions, hundreds of corporate rates and rate audits, 2-digit million payment and invoice insights</p>
                     </motion.div>
                     <motion.div 
                         className="tech-card-mobile"

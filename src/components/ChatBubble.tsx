@@ -32,6 +32,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   const [isConnected, setIsConnected] = useState(false);
   const [currentResponse, setCurrentResponse] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isFirstOpen, setIsFirstOpen] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Connect to WebSocket when chat is opened
@@ -64,6 +65,18 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, [isChatOpen]);
+  
+  // Handle shimmer animation timing
+  useEffect(() => {
+    if (isChatOpen && isFirstOpen) {
+      // After animation completes, set isFirstOpen to false
+      const timer = setTimeout(() => {
+        setIsFirstOpen(false);
+      }, 2500); // Match the animation duration
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isChatOpen, isFirstOpen]);
 
   // Scroll to bottom of messages when new message is added
   useEffect(() => {
@@ -171,6 +184,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   };
 
   const toggleChat = () => {
+    // Toggle chat state
     setIsChatOpen(!isChatOpen);
     
     // If opening the chat and not connected to WebSocket, try to connect
@@ -222,7 +236,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
           question: inputText,
           K_key: "Dummy Client",
           User_ID: "landingPageUser",
-          authToken: "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcmFzaGFudC5zaGFybWFAaHJzLmNvbSIsImVtYWlsIjoicHJhc2hhbnQuc2hhcm1hQGhycy5jb20iLCJyb2xlIjoiU1VQRVJBRE1JTiIsImFjY291bnROYW1lIjoiU2llbWVucyBBRyIsIm5hbWUiOiJQcmFzaGFudCIsImxhc3ROYW1lIjoiU2hhcm1hIiwibXlIcnNJZCI6InBzaDUxIiwiaWF0IjoxNzQ2OTA4OTI4LCJleHAiOjE3NDY5MTI1Mjh9.XBPZD5ZKhiz0seYD2OrpAy4VnkjiFav6bvUOlXakGB1JTeJitUxj6zXwNTRfRG0b",
+          // authToken: "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcmFzaGFudC5zaGFybWFAaHJzLmNvbSIsImVtYWlsIjoicHJhc2hhbnQuc2hhcm1hQGhycy5jb20iLCJyb2xlIjoiU1VQRVJBRE1JTiIsImFjY291bnROYW1lIjoiU2llbWVucyBBRyIsIm5hbWUiOiJQcmFzaGFudCIsImxhc3ROYW1lIjoiU2hhcm1hIiwibXlIcnNJZCI6InBzaDUxIiwiaWF0IjoxNzQ2OTY2OTc1LCJleHAiOjE3NDY5NzA1NzV9.GGi2V0Xcch0ZlgOx9tSHOjiOnHuXT2tFEU6miPZGbfZ_VYzlRlQZ6CUSzwLtNhSx",
           session_id: generateSessionId()
         };
         
@@ -416,9 +430,12 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   return (
     <div className="chat-bubble-container">
       {/* Chat Box */}
-      <div className={`chat-box ${isChatOpen ? 'chat-box-visible' : 'chat-box-hidden'}`}>
+      <div className={`chat-box ${isChatOpen ? 'chat-box-visible' : 'chat-box-hidden'} ${isChatOpen && isFirstOpen ? 'chat-box-first-open' : ''}`}>
         <div className="chat-header">
-          <span>Copilot</span>
+          <div className="header-title">
+            <img src={logoSrc} alt="Logo" className="header-logo" />
+            <span>Copilot</span>
+          </div>
           <span className="chat-close" onClick={toggleChat}>×</span>
         </div>
         <div className="chat-messages">
@@ -459,9 +476,9 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
             onClick={sendMessage}
             disabled={!inputText.trim() || isProcessing || (!isConnected && messages.length > 0 && messages[messages.length - 1].isUser)}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 2L11 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
         </div>
@@ -470,7 +487,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
       {/* Chat Bubble - only show when chat is not open */}
       {!isChatOpen && (
         <div className={`chat-bubble pulse`} onClick={toggleChat}>
-          <img src={logoSrc} alt="Chat" />
+          <img src="/chatLogoNew-CZ9xL0ka.svg" alt="Chat" />
         </div>
       )}
     </div>

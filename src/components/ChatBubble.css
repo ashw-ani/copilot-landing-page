@@ -9,18 +9,18 @@
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  background-color: #0066cc;
+  background: linear-gradient(135deg, rgb(168, 85, 247), rgb(56, 189, 248), rgb(16, 185, 129));
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .chat-bubble:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .chat-bubble img {
@@ -67,6 +67,25 @@
   opacity: 1;
 }
 
+.chat-box-first-open::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(90deg, transparent, #BD7AFD, #04CAF7, #01BF85, transparent);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  animation: shimmer 2.5s ease-in-out forwards;
+  pointer-events: none;
+}
+
 .chat-header {
   background-color: #f0f0f0;
   color: #333;
@@ -76,6 +95,18 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .chat-close {
@@ -181,7 +212,7 @@
 }
 
 .chat-send {
-  background-color: #0066cc;
+  background-color: #33EBAB;
   color: white;
   border: none;
   border-radius: 50%;
@@ -195,7 +226,7 @@
 }
 
 .chat-send:hover {
-  background-color: #0055b3;
+  background-color: #2ad699;
 }
 
 .chat-send:disabled {
@@ -211,13 +242,13 @@
 /* Animation for the chat bubble */
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(0, 102, 204, 0);
+    box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
   }
 }
 
@@ -238,6 +269,22 @@
   100% {
     opacity: 0.4;
     transform: scale(0.8);
+  }
+}
+
+/* Shimmer animation for chat box opening */
+@keyframes shimmer {
+  0% {
+    opacity: 0.8;
+    background-position: -450px 0;
+  }
+  50% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+  100% {
+    opacity: 0;
+    background-position: 450px 0;
   }
 }
 
