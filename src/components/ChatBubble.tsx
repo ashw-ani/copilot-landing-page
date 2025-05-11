@@ -23,6 +23,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   const [currentResponse, setCurrentResponse] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isFirstOpen, setIsFirstOpen] = useState(true);
+  const [showTooltip, setShowTooltip] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Connect to WebSocket when chat is opened
@@ -44,8 +45,31 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   useEffect(() => {
     const handleResize = () => {
       const chatBox = document.querySelector('.chat-box');
-      if (chatBox && window.innerHeight < 800) {
-        (chatBox as HTMLElement).style.height = `${Math.max(500, window.innerHeight - 100)}px`;
+      if (chatBox) {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+          // Mobile view adjustments
+          (chatBox as HTMLElement).style.height = `${Math.max(400, window.innerHeight - 150)}px`;
+          
+          if (window.innerWidth <= 480) {
+            // Smaller phones with consistent right margin
+            (chatBox as HTMLElement).style.width = 'calc(100vw - 40px)';
+            (chatBox as HTMLElement).style.right = '20px';
+            (chatBox as HTMLElement).style.left = 'auto';
+          } else {
+            // Tablets and larger phones with consistent right margin
+            (chatBox as HTMLElement).style.width = 'calc(100vw - 60px)';
+            (chatBox as HTMLElement).style.right = '20px';
+            (chatBox as HTMLElement).style.left = 'auto';
+          }
+        } else if (window.innerHeight < 800) {
+          // Desktop with smaller height
+          (chatBox as HTMLElement).style.height = `${Math.max(500, window.innerHeight - 100)}px`;
+          (chatBox as HTMLElement).style.width = '450px';
+          (chatBox as HTMLElement).style.right = '30px';
+          (chatBox as HTMLElement).style.left = 'auto';
+        }
       }
     };
     
@@ -68,6 +92,31 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
       return () => clearTimeout(timer);
     }
   }, [isChatOpen, isFirstOpen]);
+  
+  // State to prevent animation issues
+  const [isTooltipReady, setIsTooltipReady] = useState(false);
+  
+  // Show tooltip after a delay
+  useEffect(() => {
+    if (!isChatOpen) {
+      // First set tooltip ready state to false and hide tooltip
+      setIsTooltipReady(false);
+      setShowTooltip(false);
+      
+      // Delay before showing tooltip to prevent animation issues
+      const tooltipTimer = setTimeout(() => {
+        // Set ready first, then show tooltip after a small delay
+        setIsTooltipReady(true);
+        
+        // Small additional delay before showing the tooltip
+        setTimeout(() => {
+          setShowTooltip(true);
+        }, 300);
+      }, 2000); // Show tooltip after 2 seconds
+      
+      return () => clearTimeout(tooltipTimer);
+    }
+  }, [isChatOpen]);
 
   // Scroll to bottom of messages when new message is added
   useEffect(() => {
@@ -182,6 +231,11 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
     if (!isChatOpen && !socket) {
       connectWebSocket();
     }
+    
+    // Hide tooltip when chat is opened
+    if (!isChatOpen) {
+      setShowTooltip(false);
+    }
   };
 
   const addMessage = (text: string, isUser: boolean) => {
@@ -227,7 +281,6 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
           question: inputText,
           K_key: "Dummy Client",
           User_ID: "landingPageUser",
-          authToken: "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcmFzaGFudC5zaGFybWFAaHJzLmNvbSIsImVtYWlsIjoicHJhc2hhbnQuc2hhcm1hQGhycy5jb20iLCJyb2xlIjoiU1VQRVJBRE1JTiIsImFjY291bnROYW1lIjoiU2llbWVucyBBRyIsIm5hbWUiOiJQcmFzaGFudCIsImxhc3ROYW1lIjoiU2hhcm1hIiwibXlIcnNJZCI6InBzaDUxIiwiaWF0IjoxNzQ2OTY5NTEzLCJleHAiOjE3NDY5NzMxMTN9.qJLLrwvVnwOYcm5ovv8jKuLYIP1b4gSDUQhL3iuYeflnXAPMUai_-mzLMCqnPAk6",
           session_id: generateSessionId()
         };
         
@@ -339,7 +392,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
     
     return sections.map((section, sectionIndex) => {
       // Check if this section is a header (ends with "include:" or "to:" or is "INSIGHTS")
-      const isHeader = /(:|\bINSIGHTS\b)$/.test(section.trim());
+      const isHeader = /(:|\\bINSIGHTS\\b)$/.test(section.trim());
       
       if (isHeader) {
         // Return the header with proper styling
@@ -356,7 +409,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
           <div key={`section-${sectionIndex}`} className="section-content">
             {lines.map((line, lineIndex) => {
               // Check if this is a numbered list item
-              const listItemMatch = line.match(/^(\d+)\.\s+(.*)/);
+              const listItemMatch = line.match(/^(\\d+)\\.\\s+(.*)/);
               
               if (listItemMatch) {
                 // Format as a list item
@@ -421,7 +474,10 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   return (
     <div className="chat-bubble-container">
       {/* Chat Box */}
-      <div className={`chat-box ${isChatOpen ? 'chat-box-visible' : 'chat-box-hidden'} ${isChatOpen && isFirstOpen ? 'chat-box-first-open' : ''}`}>
+      <div 
+        className={`chat-box ${isChatOpen ? 'chat-box-visible' : 'chat-box-hidden'} ${isChatOpen && isFirstOpen ? 'chat-box-first-open' : ''}`}
+        style={{ right: '30px' }} // Ensure consistent right positioning
+      >
         <div className="chat-header">
           <div className="header-title">
             <img src={logoSrc} alt="Logo" className="header-logo" />
@@ -477,8 +533,25 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
 
       {/* Chat Bubble - only show when chat is not open */}
       {!isChatOpen && (
-        <div className={`chat-bubble pulse`} onClick={toggleChat}>
-          <img src="/chatLogoNew-CZ9xL0ka.svg" alt="Chat" />
+        <div className="chat-bubble-wrapper">
+          <div className="chat-bubble-tooltip-container">
+            {isTooltipReady && showTooltip && (
+              <div className="chat-tooltip">
+                <span>Try the copilot</span>
+                <button 
+                  className="tooltip-close" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowTooltip(false);
+                  }}
+                  aria-label="Close tooltip"
+                >×</button>
+              </div>
+            )}
+            <div className={`chat-bubble pulse`} onClick={toggleChat}>
+              <img src="/chatLogoNew-CZ9xL0ka.svg" alt="Chat" />
+            </div>
+          </div>
         </div>
       )}
     </div>
