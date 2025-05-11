@@ -322,8 +322,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
     if (!text) return [];
     
     // Handle special formatting for structured content
-    if (text.includes("Key features") || text.includes("INSIGHTS")) {
-      // Process structured content with headers and lists
+    if (text.includes("Key features") || text.includes("INSIGHTS") || text.includes("**")) {
+      // Process structured content with headers and lists or markdown-style formatting
       return formatStructuredContent(text);
     }
     
@@ -387,18 +387,47 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
     // Clean up excessive newlines
     let cleanedText = text.replace(/\n{3,}/g, '\n\n');
     
+    // Process markdown-style bold formatting
+    const processBoldText = (line: string) => {
+      if (!line.includes('**')) return line;
+      
+      const parts = [];
+      const boldRegex = /\*\*(.*?)\*\*/g;
+      let lastIndex = 0;
+      let match;
+      
+      while ((match = boldRegex.exec(line)) !== null) {
+        // Add text before the bold part
+        if (match.index > lastIndex) {
+          parts.push(line.substring(lastIndex, match.index));
+        }
+        
+        // Add the bold part
+        parts.push(<strong key={match.index}>{match[1]}</strong>);
+        
+        lastIndex = match.index + match[0].length;
+      }
+      
+      // Add any remaining text
+      if (lastIndex < line.length) {
+        parts.push(line.substring(lastIndex));
+      }
+      
+      return parts.length > 0 ? parts : line;
+    };
+    
     // Split the text into sections based on double newlines
     const sections = cleanedText.split(/\n\n+/);
     
     return sections.map((section, sectionIndex) => {
       // Check if this section is a header (ends with "include:" or "to:" or is "INSIGHTS")
-      const isHeader = /(:|\\bINSIGHTS\\b)$/.test(section.trim());
+      const isHeader = /(:|INSIGHTS)$/.test(section.trim());
       
       if (isHeader) {
         // Return the header with proper styling
         return (
           <div key={`section-${sectionIndex}`} className="section-header">
-            {section}
+            {processBoldText(section)}
           </div>
         );
       } else {
@@ -409,19 +438,19 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
           <div key={`section-${sectionIndex}`} className="section-content">
             {lines.map((line, lineIndex) => {
               // Check if this is a numbered list item
-              const listItemMatch = line.match(/^(\\d+)\\.\\s+(.*)/);
+              const listItemMatch = line.match(/^(\d+)\.\s+(.*)/);
               
               if (listItemMatch) {
                 // Format as a list item
                 return (
                   <div key={`line-${sectionIndex}-${lineIndex}`} className="list-item">
                     <span className="list-number">{listItemMatch[1]}.</span>
-                    <span>{listItemMatch[2]}</span>
+                    <span>{processBoldText(listItemMatch[2])}</span>
                   </div>
                 );
               } else if (line.trim()) {
-                // Regular paragraph
-                return <p key={`line-${sectionIndex}-${lineIndex}`}>{line}</p>;
+                // Regular paragraph with possible bold formatting
+                return <p key={`line-${sectionIndex}-${lineIndex}`}>{processBoldText(line)}</p>;
               } else {
                 // Empty line
                 return <br key={`line-${sectionIndex}-${lineIndex}`} style={{ marginBottom: '2px' }} />;
