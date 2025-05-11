@@ -279,9 +279,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
         const message = {
           action: "query",
           question: inputText,
-          K_key: "Siemens AG",
+          K_key: "Dummy Client",
           User_ID: "landingPageUser",
-          authToken: "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcmFzaGFudC5zaGFybWFAaHJzLmNvbSIsImVtYWlsIjoicHJhc2hhbnQuc2hhcm1hQGhycy5jb20iLCJyb2xlIjoiU1VQRVJBRE1JTiIsImFjY291bnROYW1lIjoiU2llbWVucyBBRyIsIm5hbWUiOiJQcmFzaGFudCIsImxhc3ROYW1lIjoiU2hhcm1hIiwibXlIcnNJZCI6InBzaDUxIiwiaWF0IjoxNzQ2OTc2NjA0LCJleHAiOjE3NDY5ODAyMDR9.PuhTZux3h8JmZQLqTzF34cf3_PErIc8kFJ9tNBn0Md8IAXLS5PisGtem5lHzTx1W",
           session_id: generateSessionId()
         };
         
