@@ -12,16 +12,6 @@ interface Message {
   timestamp: Date;
 }
 
-interface WebSocketResponse {
-  message_id?: string;
-  text?: string;
-  content?: string;
-  type?: string;
-  sequence?: number;
-  timestamp?: number;
-  response?: string;
-}
-
 const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [inputText, setInputText] = useState('');
