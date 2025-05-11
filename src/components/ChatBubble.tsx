@@ -26,7 +26,6 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Connect to WebSocket when chat is opened
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isChatOpen && !socket) {
       connectWebSocket();
@@ -38,6 +37,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
         socket.close();
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChatOpen]);
   
   // Adjust chat box position based on window size
@@ -227,7 +227,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ logoSrc = '/Logo2.png' }) => {
           question: inputText,
           K_key: "Dummy Client",
           User_ID: "landingPageUser",
-          // authToken: "not need once dymy client flow implemented",
+          authToken: "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwcmFzaGFudC5zaGFybWFAaHJzLmNvbSIsImVtYWlsIjoicHJhc2hhbnQuc2hhcm1hQGhycy5jb20iLCJyb2xlIjoiU1VQRVJBRE1JTiIsImFjY291bnROYW1lIjoiU2llbWVucyBBRyIsIm5hbWUiOiJQcmFzaGFudCIsImxhc3ROYW1lIjoiU2hhcm1hIiwibXlIcnNJZCI6InBzaDUxIiwiaWF0IjoxNzQ2OTY5NTEzLCJleHAiOjE3NDY5NzMxMTN9.qJLLrwvVnwOYcm5ovv8jKuLYIP1b4gSDUQhL3iuYeflnXAPMUai_-mzLMCqnPAk6",
           session_id: generateSessionId()
         };
         
