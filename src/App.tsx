@@ -40,19 +40,19 @@ function App() {
           {
               title: "Seamless harmonization",
               description: "Compare transient stays, extended stays, meetings, and group bookings in a unified dashboard.",
-              video: "/seamlessharmonizationnewdark.mov",
+              video: "/seamlessharmonizationnewest.mov",
               cornerIcon: "/frame1.svg"
           },
           {
               title: "Intelligent Targets",
               description: "Set and monitor company goals with AI-driven alerts for optimization.",
-              video: "/intelligenttargetsnewdark.mp4",
+              video: "/intelligenttargetsnewest.mov",
               cornerIcon: "/frame1.svg"
           },
           {
               title: "Performance benchmarking",
               description: "Compare your spend patterns with industry and competitors across global benchmark",
-              video: "/performancebenchmarkingnewdark.mp4",
+              video: "/performancebenchmarkingnewest.mov",
               cornerIcon: "/frame1.svg"
           }
       ]
@@ -65,19 +65,19 @@ const testimonialdata2 = [
       features: [{
           title: "Actionable insights",
           description: "Get transparent pro-active recommendations with clear execution steps and risk models.",
-          video: "/actionableinsightsnewdark.mp4",
+          video: "/actionableinsightsnewest.mov",
           cornerIcon: "/frame1.svg"
       },
       {
           title: "Interactive AI consultant",
           description: " Ask any question to understand your business drivers and explore optimization opportunities through AI.",
-          video: "/interactiveaiconsultantnewdark.mp4",
+          video: "/interactiveaiconsultantnewest.mov",
           cornerIcon: "/frame1.svg"
       },
       {
           title: "Continuous learning",
           description: "Keep a full history of targets, actions, and decisions to refine future spend strategies and track execution in real-time.",
-          video: "/continousleadningnewdark.mp4",cornerIcon: "/frame1.svg"
+          video: "/Continuouslearningnewest.mov",cornerIcon: "/frame1.svg"
       }]
   }
 ]
@@ -87,17 +87,17 @@ const testimonialdata3 = [
       features: [{
           title: "Procure-to-Reclaim augmentation",
           description: "Transform your travel management strategies through seamless Procure-to-Reclaim process amplification.",
-          video: "/procuretoreclaimaugmentationnewdark.mp4",cornerIcon: "/frame1.svg"
+          video: "/Procuretoreclaimnewest.mov",cornerIcon: "/frame1.svg"
       },
       {
           title: "Full market access",
           description: "Tap into unbiased, comprehensive market insights to optimize procurement in one click.",
-          video: "/fullmarketaccessnewdark.mp4",cornerIcon: "/frame1.svg"
+          video: "/fullmarketaccessnewest.mov",cornerIcon: "/frame1.svg"
       },
       {
           title: "End-to-end integration",
           description: "Seamlessly connect Copilot to your lodging and meetings platform.",
-          video: "/endtoendintegrationnewdark.mp4",cornerIcon: "/frame1.svg"
+          video: "/endtoendintegrationnewest.mov",cornerIcon: "/frame1.svg"
       }]
   }
 ]
