@@ -15,7 +15,7 @@ import End from './components/End';
 import Popup from './components/Popup';
 import Technologies from './components/Technologies';
 import BrandStrip from './components/BrandStrip';
-import ChatBubble from './components/ChatBubble';
+// import ChatBubble from './components/ChatBubble';
 // import FullWidthVideo from './components/FullWidthVideo';
 // import MultiWindows from './components/MultiWindows';
 // import DynamicsForm from './components/DynamicsForm';
@@ -200,7 +200,7 @@ const testimonialdata3 = [
         onClose={() => setIsPopupOpen(false)}
         onSubmit={handlePopupSubmit}
       />
-      <ChatBubble />
+      {/* <ChatBubble /> */}
     </div>
   );
 }
