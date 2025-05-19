@@ -148,7 +148,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-radius: 0.25rem;
+  /* border-radius: 0.25rem; */
   min-width: 9rem;
 }
 
