@@ -105,7 +105,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
-                            Your Personal AI Consultant
+                            The AI Assistant that optimizes your lodging and meeting programs
                         </motion.h1>
                         <motion.p 
                             className="hero-description"
@@ -267,7 +267,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                        Your Personal AI Consultant
+                        The AI Assistant that optimizes your lodging and meeting programs
                     </motion.h1>
                     <motion.p 
                         className="hero-description hero-description-tablet"
@@ -392,7 +392,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                        Your Personal AI Consultant
+                        
                     </motion.h1>
                     <motion.p 
                         className="hero-description hero-description-mobile"
