@@ -21,7 +21,7 @@ const BrandStrip: React.FC = () => {
                 >
                     <img src="/dhl.png" alt="Brand Logo" className="brand-logo" />
                     <img src="/allianz.png" alt="Brand Logo" className="brand-logo" />
-                    {/* <img src="/deloitte.png" alt="Brand Logo" className="brand-logo" /> */}
+                    <img src="/deloitte.png" alt="Brand Logo" className="brand-logo" />
                     <img src="/siemens.png" alt="Brand Logo" className="brand-logo" />
                     
                 </motion.div>
